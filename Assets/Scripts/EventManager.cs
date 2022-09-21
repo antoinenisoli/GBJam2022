@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class EventManager : MonoBehaviour
 {
     public static EventManager Instance;
+    public UnityEvent onPlayerNextLevel = new UnityEvent();
 
     private void Awake()
     {

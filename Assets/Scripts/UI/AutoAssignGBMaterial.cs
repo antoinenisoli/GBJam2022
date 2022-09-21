@@ -15,14 +15,8 @@ public class AutoAssignGBMaterial : MonoBehaviour
         if (!gbMaterial)
             return;
 
-        int childCount = transform.childCount;
-        for (int i = 0; i < childCount; i++)
-        {
-            Transform child = transform.GetChild(i);
-            Image image = child.GetComponent<Image>();
-            if (image)
-                image.material = gbMaterial;
-        }
+        foreach (Image image in GetComponentsInChildren<Image>())
+            image.material = gbMaterial;
     }
 
     private void Update()

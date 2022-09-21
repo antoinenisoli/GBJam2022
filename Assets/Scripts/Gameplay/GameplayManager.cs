@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
-    List<Enemy> enemies = new List<Enemy>();
+    public PlayerExperience PlayerEXP;
+    [SerializeField] List<Enemy> enemies = new List<Enemy>();
 
     private void Awake()
     {
@@ -41,5 +42,11 @@ public class GameplayManager : MonoBehaviour
         }
 
         return closestEnemy;
+    }
+
+    [ContextMenu(nameof(CreateLevels))]
+    public void CreateLevels()
+    {
+        PlayerEXP.CreateLevels();
     }
 }
