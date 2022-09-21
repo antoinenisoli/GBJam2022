@@ -35,4 +35,9 @@ public class Health
     {
         CurrentHealth += amount;
     }
+
+    public float GetDifference()
+    {
+        return CurrentHealth / MaxHealth;
+    }
 }
