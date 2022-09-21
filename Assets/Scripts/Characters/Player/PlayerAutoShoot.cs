@@ -10,11 +10,13 @@ public class PlayerAutoShoot : MonoBehaviour
 
     public void ShootProjectile()
     {
+        Enemy closest = GameplayManager.Instance.ClosestEnemy();
+        if (!closest)
+            return;
+
         GameObject newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Projectile proj = newProjectile.GetComponent<Projectile>();
-        Enemy closest = GameplayManager.Instance.ClosestEnemy();
-        if (closest)
-            proj.Shoot(closest.transform.position);
+        proj.Shoot(closest.transform.position);
     }
 
     private void Update()
