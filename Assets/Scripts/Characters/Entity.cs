@@ -6,6 +6,13 @@ public abstract class Entity : MonoBehaviour
 {
     public Health MyHealth;
 
+    public void TakeDmg(float amount)
+    {
+        MyHealth.CurrentHealth -= amount;
+        if (MyHealth.isDead)
+            Destroy(gameObject);
+    }
+
     public virtual void Start()
     {
         MyHealth.Initialize();
