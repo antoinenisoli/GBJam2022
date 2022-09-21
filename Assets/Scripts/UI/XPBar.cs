@@ -7,6 +7,7 @@ public class XPBar : MonoBehaviour
 {
     [SerializeField] RectTransform fillTransform;
     [SerializeField] float maxWidth;
+    [SerializeField] Text levelText;
     PlayerExperience xp;
 
     private void Start()
@@ -16,6 +17,7 @@ public class XPBar : MonoBehaviour
 
     private void Update()
     {
+        levelText.text = "Level " + xp.currentLevel;
         float diff = xp.experience / xp.GetNextLevel().stepAmount;
         Vector2 rect = fillTransform.sizeDelta;
         rect.x = maxWidth * diff; 
