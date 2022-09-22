@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
+
+[System.Serializable]
+struct FakeButton
+{
+    public Transform myButton;
+    public UnityEvent selectEvent;
+}
 
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] Transform arrow;
-    [SerializeField] Transform buttonContrainer;
-    Transform[] buttons;
     [SerializeField] int index;
+    [SerializeField] FakeButton[] fakeButtons;
     float timer;
 
     int Index 
@@ -18,28 +25,20 @@ public class MainMenuManager : MonoBehaviour
         set
         {
             if (value < 0)
-                value = buttonContrainer.childCount - 1;
-
-            if (value > buttonContrainer.childCount - 1)
+                value = fakeButtons.Length - 1;
+            if (value > fakeButtons.Length - 1)
                 value = 0;
 
             index = value;
         }
     }
 
-    private void Awake()
-    {
-        buttons = new Transform[buttonContrainer.childCount];
-        for (int i = 0; i < buttonContrainer.childCount; i++)
-            buttons[i] = buttonContrainer.GetChild(i);
-    }
-
-    public void PlayGame() //ui button method
+    public void PlayGame() //event method
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void QuitGame() //ui button method
+    public void QuitGame() //event method
     {
         Application.Quit();
     }
@@ -56,12 +55,15 @@ public class MainMenuManager : MonoBehaviour
                 Index -= axisInput;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            fakeButtons[Index].selectEvent.Invoke();
     }
 
     void MoveArrow()
     {
         Vector2 buttonPosition = arrow.position;
-        buttonPosition.y = buttons[Index].position.y;
+        buttonPosition.y = fakeButtons[Index].myButton.position.y;
         arrow.position = buttonPosition;
     }
 
