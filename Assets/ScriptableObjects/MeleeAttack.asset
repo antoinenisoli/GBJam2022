@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde425de98d63e745bce0677974e736e, type: 3}
   m_Name: MeleeAttack
   m_EditorClassIdentifier: 
-  rate: 2
+  icon: {fileID: 21300000, guid: 73841b216496fa6488d2706487903026, type: 3}
+  levels:
+  - rate: 2
+    damage: 100
+  - rate: 1.5
+    damage: 150
+  - rate: 1
+    damage: 200
   attackRadius: 7
-  damage: 100
   targetLayer:
     serializedVersion: 2
     m_Bits: 64

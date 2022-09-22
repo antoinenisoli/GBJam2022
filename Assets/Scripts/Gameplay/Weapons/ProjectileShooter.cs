@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = nameof(ProjectileShooter), menuName = "Weapons/" + nameof(ProjectileShooter))]
 public class ProjectileShooter : Weapon
 {
+    [Header(nameof(ProjectileShooter))]
     [SerializeField] GameObject projectilePrefab;
 
     public override void Execute()
@@ -16,5 +17,6 @@ public class ProjectileShooter : Weapon
         GameObject newProjectile = Instantiate(projectilePrefab, manager.transform.position, Quaternion.identity);
         Projectile proj = newProjectile.GetComponent<Projectile>();
         proj.Shoot(closest.transform.position);
+        proj.SetData(this);
     }
 }

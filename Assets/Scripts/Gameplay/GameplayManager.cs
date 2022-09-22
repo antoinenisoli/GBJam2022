@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum GameState
+{
+    Active,
+    InMenu,
+    Paused,
+}
+
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
+    [SerializeField] GameState state;
     public PlayerExperience PlayerEXP;
+    [SerializeField] GameObject weaponMenu;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
 
     private void Awake()
@@ -14,6 +23,8 @@ public class GameplayManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        weaponMenu.SetActive(false);
     }
 
     public void AddEnemy(Enemy enemy)
@@ -48,5 +59,43 @@ public class GameplayManager : MonoBehaviour
     public void CreateLevels()
     {
         PlayerEXP.CreateLevels();
+    }
+
+    void ManageState()
+    {
+        switch (state)
+        {
+            case GameState.InMenu:
+                if (Input.GetButtonDown("SelectButton"))
+                {
+                    state = GameState.Active;
+                    weaponMenu.SetActive(false);
+                }
+
+                break;
+            case GameState.Paused:
+                if (Input.GetButtonDown("StartButton"))
+                    state = GameState.Active;
+
+                break;
+            case GameState.Active:
+                if (Input.GetButtonDown("SelectButton"))
+                {
+                    state = GameState.InMenu;
+                    weaponMenu.SetActive(true);
+                }
+
+                if (Input.GetButtonDown("StartButton"))
+                    state = GameState.Paused;
+
+                break;
+        }
+
+        Time.timeScale = state == GameState.Active ? 1 : 0;
+    }
+
+    private void Update()
+    {
+        ManageState();
     }
 }

@@ -27,6 +27,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public void SetData(Weapon weapon)
+    {
+        damageAmount = weapon.LevelData.damage;
+    }
+
     void LookAtTrajectory()
     {
         float angle = Mathf.Atan2(trajectory.y, trajectory.x) * Mathf.Rad2Deg;

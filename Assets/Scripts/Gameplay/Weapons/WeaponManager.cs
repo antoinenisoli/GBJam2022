@@ -6,6 +6,8 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField] Weapon[] weapons;
 
+    public Weapon[] Weapons { get => weapons; }
+
     private void Awake()
     {
         Weapon[] copiedData = new Weapon[weapons.Length];
