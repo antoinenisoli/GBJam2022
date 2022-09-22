@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
         if (enemy)
         {
             enemy.TakeDmg(damageAmount);
+            VFXManager.PlayVFX("HitSpark", transform.position);
             Destroy(gameObject);
         }
     }

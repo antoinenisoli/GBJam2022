@@ -7,17 +7,9 @@ public static class VFXManager
 {
     public static VFXBank FXBank;
 
-    [RuntimeInitializeOnLoadMethod]
-    static void OnStart()
-    {
-        LoadData();
-    }
-
     public static void LoadData()
     {
-        FXBank = Resources.Load<VFXBank>("GameData/" + nameof(VFXBank));
-        if (FXBank)
-            Debug.Log("just loaded data ! " + FXBank.name);
+        FXBank = Resources.Load<VFXBank>(nameof(VFXBank));
     }
 
     /// <summary>
@@ -25,6 +17,8 @@ public static class VFXManager
     /// </summary>
     public static GameObject PlayVFX(string name, Vector3 pos, bool destroy = true, Transform parent = null)
     {
+        LoadData();
+
         if (FXBank == null)
         {
             Debug.LogError("Error, the vfx bank is null");

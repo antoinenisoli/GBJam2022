@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6979197234103918615}
   - component: {fileID: 6979197234103918617}
   - component: {fileID: 6979197234103918616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,6 +284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startAnim: Idle
+  autoDestroy: 0
+  autoDestroyDelay: 2
   animRenderer: {fileID: 6979197234608164232}
   animations:
   - name: Idle

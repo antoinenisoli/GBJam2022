@@ -8,6 +8,11 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
+        Weapon[] copiedData = new Weapon[weapons.Length];
+        for (int i = 0; i < weapons.Length; i++)
+            copiedData[i] = Instantiate(weapons[i]);
+
+        weapons = copiedData;
         foreach (var item in weapons)
             item.Init(this);
     }

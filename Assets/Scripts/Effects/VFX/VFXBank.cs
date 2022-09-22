@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(VFXBank), menuName = "Corneille/VFX/" + nameof(VFXBank))]
+[CreateAssetMenu(fileName = nameof(VFXBank), menuName = "VFX/" + nameof(VFXBank))]
 public class VFXBank : ScriptableObject
 {
     public VFX[] vfx;
