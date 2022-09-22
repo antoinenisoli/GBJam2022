@@ -4191,7 +4191,7 @@ PrefabInstance:
     - target: {fileID: 1360333004919825084, guid: 400d997c33d8bbb47a9f95625ac00cd5, type: 3}
       propertyPath: weapons.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: f93315a1efad20d449d410c7aa460dad, type: 2}
+      objectReference: {fileID: 11400000, guid: ecc47a998265fa8479c3209545a366ac, type: 2}
     - target: {fileID: 1360333005211053120, guid: 400d997c33d8bbb47a9f95625ac00cd5, type: 3}
       propertyPath: m_FlipX
       value: 0

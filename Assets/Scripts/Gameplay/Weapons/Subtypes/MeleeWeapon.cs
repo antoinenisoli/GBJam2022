@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(MeleeAttack), menuName = "Weapons/" + nameof(MeleeAttack))]
-public class MeleeAttack : Weapon
+[CreateAssetMenu(fileName = nameof(MeleeWeapon), menuName = "Weapons/" + nameof(MeleeWeapon))]
+public class MeleeWeapon : Weapon
 {
-    [Header(nameof(MeleeAttack))]
+    [Header(nameof(MeleeWeapon))]
     [SerializeField] float attackRadius = 2f;
     [SerializeField] string fxName = "Slash";
     [SerializeField] LayerMask targetLayer;

@@ -26,6 +26,17 @@ public abstract class Entity : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public virtual void TakeDmgDelayed(float amount, float delay)
+    {
+        StartCoroutine(DelayedHit(amount, delay));
+    }
+
+    IEnumerator DelayedHit(float amount, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        TakeDmg(amount);
+    }
+
     public virtual void Heal(float amount)
     {
         MyHealth.CurrentHealth += amount;
