@@ -18,7 +18,7 @@ public class XPBar : MonoBehaviour
     private void Update()
     {
         levelText.text = "Level " + xp.currentLevel;
-        float diff = xp.experience / xp.GetNextLevel().stepAmount;
+        float diff = (float)xp.Experience / (float)xp.GetNextLevel().stepAmount;
         Vector2 rect = fillTransform.sizeDelta;
         rect.x = maxWidth * diff; 
         fillTransform.sizeDelta = rect;

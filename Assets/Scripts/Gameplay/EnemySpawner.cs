@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int spawnCount = 3;
     [SerializeField] float positionRandomOffset = 3f;
     [SerializeField] GameObject enemyPrefab;
+    [SerializeField] Transform spawnParent;
     [SerializeField] Vector2 randomCooldown = new Vector2(50, 60);
     float cooldown;
     float timer;
@@ -49,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             Vector2 newPos = (Vector2)transform.position + RandomPosition();
-            Enemy enemy = Instantiate(enemyPrefab, newPos, Quaternion.identity).GetComponent<Enemy>();
+            Instantiate(enemyPrefab, newPos, Quaternion.identity, spawnParent);
         }
     }
 

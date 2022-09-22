@@ -8,10 +8,10 @@ public struct PlayerLevel
     public int count;
     public int stepAmount;
 
-    public PlayerLevel(int count, int amount)
+    public PlayerLevel(int count, int stepAmount)
     {
         this.count = count;
-        this.stepAmount = amount;
+        this.stepAmount = stepAmount;
     }
 }
 
@@ -19,8 +19,8 @@ public struct PlayerLevel
 public class PlayerExperience
 {
     public int currentLevel = 1;
-    public int experience;
-    public AnimationCurve levelCurve;
+    [SerializeField] int experience;
+    [SerializeField] AnimationCurve levelCurve;
     public int maxXpAmount = 50000;
     public PlayerLevel[] levels = new PlayerLevel[50];
 
@@ -42,7 +42,7 @@ public class PlayerExperience
     public PlayerLevel GetNextLevel()
     {
         if (currentLevel < levels.Length)
-            return levels[currentLevel + 1];
+            return levels[currentLevel];
         else
             return levels[levels.Length - 1];
     }

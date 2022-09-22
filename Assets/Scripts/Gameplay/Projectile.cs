@@ -26,8 +26,15 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    void LookAtTrajectory()
+    {
+        float angle = Mathf.Atan2(trajectory.y, trajectory.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
     private void Update()
     {
+        LookAtTrajectory();
         transform.position += (Vector3)trajectory * Time.deltaTime * speed;
     }
 }
