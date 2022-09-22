@@ -21,3 +21,5 @@ MonoBehaviour:
     prefab: {fileID: 6039356385515273276, guid: 5843cd6b8a652094397135d552b322b1, type: 3}
   - name: EarthBump
     prefab: {fileID: 4790161993305782431, guid: 2ec49218db50e494cb1d999b2553ee1b, type: 3}
+  - name: ExplosionFX
+    prefab: {fileID: 7938250568673893837, guid: 702da67379e28344498109967b3ccc21, type: 3}

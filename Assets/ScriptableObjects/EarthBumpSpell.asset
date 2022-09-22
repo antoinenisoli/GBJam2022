@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: EarthBumpSpell
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 7e546ddd21229a14995b0a9e425baa51, type: 3}
+  currentLevel: 0
+  description: Summon sharp rocks from the ground around you, inflicting damage on
+    the enemies.
   levels:
   - rate: 2
     damage: 35
@@ -20,7 +23,6 @@ MonoBehaviour:
     damage: 100
   - rate: 3
     damage: 100
-  currentLevel: 0
   spawnRadius: 30
   attackRadius: 6
   delayBeforeHit: 0

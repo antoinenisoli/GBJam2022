@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942b34cad40c8bb4eaad7cc856b0e749, type: 3}
+  m_Name: ThrowWind
+  m_EditorClassIdentifier: 
+  icon: {fileID: -4505496555986097291, guid: 9e8dfa951338df34f83cf631a22f87b0, type: 3}
+  currentLevel: 0
+  description: Throw a wind ring at the closest enemy, pushing away all the enemies
+    around it.
+  levels:
+  - rate: 5
+    damage: 1
+  - rate: 4
+    damage: 5
+  - rate: 3
+    damage: 10
+  projectilePrefab: {fileID: 7335037475274817741, guid: 4dd66c53e9c0cec48ae2f197978a4af8, type: 3}

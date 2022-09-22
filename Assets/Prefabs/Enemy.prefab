@@ -147,14 +147,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 7
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6979197234103918617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +173,9 @@ MonoBehaviour:
   hitMat: {fileID: 2100000, guid: fb028d027b70c364aac618adb7fae780, type: 2}
   characterRenderer: {fileID: 6979197234608164232}
   hitDuration: 0.1
+  spawnData:
+    Probability: 0.5
+    Quality: 0
 --- !u!114 &6979197234103918616
 MonoBehaviour:
   m_ObjectHideFlags: 0

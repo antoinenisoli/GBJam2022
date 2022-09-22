@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float damageAmount = 1f;
-    [SerializeField] float speed = 5f;
-    [SerializeField] float lifeTime = 5f;
-    Vector2 trajectory;
+    [SerializeField] protected float damageAmount = 1f;
+    [SerializeField] protected float speed = 5f, lifeTime = 5f;
+    [SerializeField] protected int collisionResistance;
+    [SerializeField] protected bool lookAtTarget;
+    protected Vector2 trajectory;
 
     public void Shoot(Vector2 trajectory)
     {
@@ -16,15 +17,23 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void Collision(Collider2D collision)
     {
         Enemy enemy = collision.GetComponentInParent<Enemy>();
         if (enemy)
         {
             enemy.TakeDmg(damageAmount);
             VFXManager.PlayVFX("HitSpark", transform.position);
-            Destroy(gameObject);
+            collisionResistance--;
+            if (collisionResistance <= 0)
+                Destroy(gameObject);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        print(collision);
+        Collision(collision);
     }
 
     public void SetData(Weapon weapon)
@@ -40,7 +49,9 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        LookAtTrajectory();
+        if (lookAtTarget)
+            LookAtTrajectory();
+
         transform.position += (Vector3)trajectory * Time.deltaTime * speed;
     }
 }

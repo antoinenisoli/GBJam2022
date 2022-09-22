@@ -12,8 +12,9 @@ public abstract class Weapon : ScriptableObject
 {
     [Header(nameof(Weapon))]
     public Sprite icon;
-    [SerializeField] protected WeaponLevel[] levels = new WeaponLevel[3];
     [SerializeField] int currentLevel;
+    [TextArea] public string description;
+    [SerializeField] protected WeaponLevel[] levels = new WeaponLevel[3];
     protected WeaponManager manager;
     float timer = 0;
 

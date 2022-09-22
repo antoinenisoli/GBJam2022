@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ThunderSpell
   m_EditorClassIdentifier: 
   icon: {fileID: -8601624698901724777, guid: 7aa34efcee74e374c8e4be44ecfb0ff9, type: 3}
+  currentLevel: 0
+  description: Summon thunder strikes around you, inflicting damage on the enemies.
   levels:
   - rate: 5
     damage: 75
@@ -20,7 +22,6 @@ MonoBehaviour:
     damage: 100
   - rate: 3
     damage: 200
-  currentLevel: 0
   spawnRadius: 20
   attackRadius: 6.5
   delayBeforeHit: 0.5
