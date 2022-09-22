@@ -26,6 +26,11 @@ public abstract class Entity : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public virtual void Heal(float amount)
+    {
+        MyHealth.CurrentHealth += amount;
+    }
+
     public virtual void DoUpdate() { }
 
     public virtual void Start()

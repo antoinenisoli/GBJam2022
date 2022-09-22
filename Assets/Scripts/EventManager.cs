@@ -7,6 +7,9 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager Instance;
     public UnityEvent onPlayerNextLevel = new UnityEvent();
+    public UnityEvent onPlayerHeal = new UnityEvent();
+    public UnityEvent onPlayerHit = new UnityEvent();
+    public UnityEvent onNewWeapon = new UnityEvent();
 
     private void Awake()
     {

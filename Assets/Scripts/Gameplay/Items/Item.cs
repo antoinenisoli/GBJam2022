@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XPItem : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
-    [SerializeField] int xpAmount = 5;
+    public abstract void Effect(PlayerController player);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponentInParent<PlayerController>();
         if (player)
         {
-            GameplayManager.Instance.PlayerEXP.AddXP(xpAmount);
+            Effect(player);
             Destroy(gameObject);
         }
     }

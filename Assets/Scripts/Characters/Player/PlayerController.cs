@@ -23,6 +23,18 @@ public class PlayerController : Entity
             Destroy(gameObject);
     }
 
+    public override void Heal(float amount)
+    {
+        base.Heal(amount);
+        EventManager.Instance.onPlayerHeal.Invoke();
+    }
+
+    public override void TakeDmg(float amount)
+    {
+        EventManager.Instance.onPlayerHit.Invoke();
+        base.TakeDmg(amount);
+    }
+
     void Moving()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
