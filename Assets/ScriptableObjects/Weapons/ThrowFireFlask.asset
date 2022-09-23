@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942b34cad40c8bb4eaad7cc856b0e749, type: 3}
   m_Name: ThrowFireFlask
   m_EditorClassIdentifier: 
+  WeaponName: ThrowFireFlask
+  Quality: 0
   icon: {fileID: 21300000, guid: 3d264b107e190b1498d9055ea489da61, type: 3}
   currentLevel: 0
   description: Throw a Fire Flask at the closest enemy, and release an explosion

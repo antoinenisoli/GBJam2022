@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942b34cad40c8bb4eaad7cc856b0e749, type: 3}
   m_Name: ThrowKnife
   m_EditorClassIdentifier: 
+  WeaponName: ThrowKnife
   Quality: 0
   icon: {fileID: 21300000, guid: c7633d9d351d2194fa2b0bf3d11fb111, type: 3}
   currentLevel: 0

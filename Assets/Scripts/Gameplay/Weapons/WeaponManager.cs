@@ -6,7 +6,6 @@ public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
     [SerializeField] List<Weapon> weapons = new List<Weapon>();
-    Dictionary<string, Weapon> storedWeapons = new Dictionary<string, Weapon>();
 
     public List<Weapon> Weapons { get => weapons; }
 
@@ -21,8 +20,6 @@ public class WeaponManager : MonoBehaviour
         for (int i = 0; i < weapons.Count; i++)
         {
             Weapon weapon = Instantiate(weapons[i]);
-            storedWeapons.Add(weapon.name, weapon);
-            weapon.UnlockLevel();
             copiedData.Add(weapon);
         }
 
@@ -31,10 +28,19 @@ public class WeaponManager : MonoBehaviour
             item.Init(this);
     }
 
+    Dictionary<string, Weapon> SortWeapons()
+    {
+        Dictionary<string, Weapon> _storedWeapons = new Dictionary<string, Weapon>();
+        foreach (var item in weapons)
+            _storedWeapons.Add(item.WeaponName, item);
+
+        return _storedWeapons;
+    }
+
     public void NewWeapon(Weapon newWeapon)
     {
-        if (storedWeapons.TryGetValue(newWeapon.name, out Weapon foundWeapon))
-            foundWeapon.UnlockLevel();
+        if (SortWeapons().TryGetValue(newWeapon.WeaponName, out Weapon foundWeapon))
+            foundWeapon.IncreaseLevel();
         else
         {
             Weapon weapon = Instantiate(newWeapon);

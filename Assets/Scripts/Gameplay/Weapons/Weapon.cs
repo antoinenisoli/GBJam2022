@@ -18,6 +18,7 @@ public enum WeaponQuality
 public abstract class Weapon : ScriptableObject
 {
     [Header(nameof(Weapon))]
+    public string WeaponName;
     public WeaponQuality Quality;
     public Sprite icon;
     [SerializeField] int currentLevel;
@@ -47,9 +48,10 @@ public abstract class Weapon : ScriptableObject
         this.manager = manager;
     }
 
-    public void UnlockLevel()
+    public void IncreaseLevel()
     {
         CurrentLevel++;
+        Debug.Log(name + " " + CurrentLevel);
     }
 
     public abstract void Execute();

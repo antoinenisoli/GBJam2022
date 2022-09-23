@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde425de98d63e745bce0677974e736e, type: 3}
   m_Name: SwordSlash
   m_EditorClassIdentifier: 
+  WeaponName: SwordSlash
+  Quality: 0
   icon: {fileID: 21300000, guid: 2a42387206350514fb4904fc837036f7, type: 3}
   currentLevel: 0
   description: Attack to the left and to the right of your hero.

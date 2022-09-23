@@ -61,7 +61,7 @@ public class WeaponSelectionManager : MonoBehaviour
 
     bool ContainsWeaponName(Weapon weapon, List<Weapon> weaponList)
     {
-        return weaponList.Any(n => n.name == weapon.name);
+        return weaponList.Any(n => n.WeaponName == weapon.WeaponName);
     }
 
     public void SelectWeapon(int i) //event method

@@ -27,7 +27,7 @@ public class GameplayManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.Instance.onPlayerNextLevel.AddListener(()=> { SetState(GameState.InWeaponMenu); });
+        EventManager.Instance.onPlayerNextLevel.AddListener(()=> { SetState(GameState.InWeaponSelection); });
         EventManager.Instance.onNewWeapon.AddListener(() => { SetState(GameState.Active); });
     }
 

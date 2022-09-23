@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2238d517698c2b44a8714522cfe89f8a, type: 3}
   m_Name: ThunderSpell
   m_EditorClassIdentifier: 
+  WeaponName: ThunderSpell
+  Quality: 0
   icon: {fileID: -8601624698901724777, guid: 7aa34efcee74e374c8e4be44ecfb0ff9, type: 3}
   currentLevel: 0
   description: Summon thunder strikes around you, inflicting damage on the enemies.

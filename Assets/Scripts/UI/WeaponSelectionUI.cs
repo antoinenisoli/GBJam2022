@@ -41,22 +41,18 @@ public class WeaponSelectionUI : MonoBehaviour
         descriptionText.text = weapon.description;
 
         //check if the weapon is already unlocked or not
-        if (ContainsWeaponName(weapon, out _))
+        if (ContainsWeaponName(weapon))
             UpdateLevels(weapon.CurrentLevel + 1);
         else
             UpdateLevels(weapon.CurrentLevel);
     }
 
-    bool ContainsWeaponName(Weapon weaponToCompare, out Weapon weaponFound)
+    bool ContainsWeaponName(Weapon weaponToCompare)
     {
         foreach (var item in WeaponManager.Instance.Weapons)
-            if (weaponToCompare.name == item.name)
-            {
-                weaponFound = item;
+            if (weaponToCompare.WeaponName == item.WeaponName)
                 return true;
-            }
 
-        weaponFound = null;
         return false;
     }
 }

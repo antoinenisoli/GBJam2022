@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942b34cad40c8bb4eaad7cc856b0e749, type: 3}
   m_Name: ThrowWind
   m_EditorClassIdentifier: 
+  WeaponName: ThrowWind
+  Quality: 0
   icon: {fileID: -4505496555986097291, guid: 9e8dfa951338df34f83cf631a22f87b0, type: 3}
   currentLevel: 0
   description: Throw a wind ring at the closest enemy, pushing away all the enemies
