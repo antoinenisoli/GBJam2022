@@ -45,7 +45,7 @@ public abstract class Weapon : ScriptableObject
 
     public bool LevelMax()
     {
-        //Debug.Log(WeaponName + " " + CurrentLevel);
+        Debug.Log(WeaponName + " level : " + CurrentLevel + "level count : " + levels.Length);
         return CurrentLevel >= levels.Length - 1;
     }
 

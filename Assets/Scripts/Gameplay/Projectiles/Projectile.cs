@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] protected float damageAmount = 1f;
-    [SerializeField] protected float speed = 5f, lifeTime = 5f;
+    [SerializeField] protected float speed = 5f, lifeTime;
     [SerializeField] protected int collisionResistance;
     [SerializeField] protected bool lookAtTarget;
     protected Vector2 trajectory;

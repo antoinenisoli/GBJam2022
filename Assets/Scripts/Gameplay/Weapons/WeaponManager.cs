@@ -39,7 +39,7 @@ public class WeaponManager : MonoBehaviour
     {
         foreach (var item in unlockedWeapons)
         {
-            print(item.WeaponName + " " + item.CurrentLevel);
+            //print(item.WeaponName + " " + item.CurrentLevel);
             if (item.LevelMax())
             {
                 Weapon weaponToRemove = SortWeapons()[item.WeaponName];
