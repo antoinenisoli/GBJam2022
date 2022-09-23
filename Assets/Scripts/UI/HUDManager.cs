@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour
 {
     [SerializeField] Text timerText;
-    [SerializeField] GameObject weaponMenu;
-    [SerializeField] GameObject weaponSelection;
+    [SerializeField] GameObject weaponMenu, weaponSelection, gameOver;
     float timer;
 
     private void Start()
@@ -18,8 +17,15 @@ public class HUDManager : MonoBehaviour
         EventManager.Instance.onSelectButton.AddListener(OpenWeaponMenu);
         EventManager.Instance.onQuitSelect.AddListener(CloseWeaponMenu);
 
+        EventManager.Instance.onGameOver.AddListener(OpenGameOver);
+        gameOver.SetActive(false);
         weaponMenu.SetActive(false);
         weaponSelection.SetActive(false);
+    }
+
+    public void OpenGameOver()
+    {
+        gameOver.SetActive(true);
     }
 
     public void OpenWeaponMenu()

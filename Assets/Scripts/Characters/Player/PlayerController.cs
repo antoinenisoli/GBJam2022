@@ -35,6 +35,12 @@ public class PlayerController : Entity
         base.TakeDmg(amount);
     }
 
+    public override void Death()
+    {
+        EventManager.Instance.onPlayerDeath.Invoke();
+        base.Death();
+    }
+
     void Moving()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");

@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 enum GameState
 {
@@ -8,12 +10,20 @@ enum GameState
     InWeaponMenu,
     InWeaponSelection,
     Paused,
+    GameOver,
 }
 
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
     [SerializeField] GameState state;
+
+    [Header("GB Fade")]
+    [SerializeField] Material gbMaterial;
+    [SerializeField] int fadeIterations = 20;
+    [SerializeField] float fadeDelay = 0.1f;
+
+    [Header("Other")]
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
     public PlayerExperience PlayerEXP;
 
@@ -27,8 +37,43 @@ public class GameplayManager : MonoBehaviour
 
     private void Start()
     {
+        if (gbMaterial)
+            StartCoroutine(FadeGB(0,1));
+
         EventManager.Instance.onPlayerNextLevel.AddListener(()=> { SetState(GameState.InWeaponSelection); });
         EventManager.Instance.onNewWeapon.AddListener(() => { SetState(GameState.Active); });
+        EventManager.Instance.onPlayerDeath.AddListener(() => 
+        {
+            StartCoroutine(FadeGB(1, 0, true));
+            SetState(GameState.GameOver);
+        });
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (gbMaterial)
+            gbMaterial.SetFloat("_Fade", 1);
+    }
+
+    IEnumerator FadeGB(float startValue, float endValue, bool gameOver = false)
+    {
+        string shaderProperty = "_Fade";
+        gbMaterial.SetFloat(shaderProperty, startValue);
+
+        for (int i = 0; i < fadeIterations; i++)
+        {
+            float step = (float)i / (float)fadeIterations;
+            float newValue = Mathf.Lerp(startValue, endValue, step);
+            gbMaterial.SetFloat(shaderProperty, newValue);
+            yield return new WaitForSecondsRealtime(fadeDelay);
+        }
+
+        gbMaterial.SetFloat(shaderProperty, endValue);
+        if (gameOver)
+        {
+            EventManager.Instance.onGameOver.Invoke();
+            //SetState(GameState.GameOver);
+        }
     }
 
     public void AddEnemy(Enemy enemy)
@@ -98,9 +143,14 @@ public class GameplayManager : MonoBehaviour
                     SetState(GameState.Paused);
 
                 break;
+            case GameState.GameOver:
+                if (Input.anyKeyDown)
+                    SceneManager.LoadScene(1);
+                
+                break;
         }
 
-        Time.timeScale = state == GameState.Active ? 1 : 0;
+        Time.timeScale = state == GameState.Active || state == GameState.GameOver ? 1 : 0;
     }
 
     private void Update()
