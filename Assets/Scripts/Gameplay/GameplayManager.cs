@@ -14,10 +14,8 @@ public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
     [SerializeField] GameState state;
-    public PlayerExperience PlayerEXP;
-    [SerializeField] GameObject weaponMenu;
-    GameObject weaponSelection;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
+    public PlayerExperience PlayerEXP;
 
     private void Awake()
     {
@@ -25,15 +23,12 @@ public class GameplayManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-
-        weaponSelection = FindObjectOfType<WeaponSelectionManager>().gameObject;
-        weaponMenu.SetActive(false);
     }
 
     private void Start()
     {
-        EventManager.Instance.onPlayerNextLevel.AddListener(OpenWeaponSelection);
-        EventManager.Instance.onNewWeapon.AddListener(CloseWeaponSelection);
+        EventManager.Instance.onPlayerNextLevel.AddListener(()=> { SetState(GameState.InWeaponMenu); });
+        EventManager.Instance.onNewWeapon.AddListener(() => { SetState(GameState.Active); });
     }
 
     public void AddEnemy(Enemy enemy)
@@ -64,16 +59,9 @@ public class GameplayManager : MonoBehaviour
         return closestEnemy;
     }
 
-    public void OpenWeaponSelection()
+    void SetState(GameState newState)
     {
-        state = GameState.InWeaponSelection;
-        weaponSelection.SetActive(true);
-    }
-
-    public void CloseWeaponSelection()
-    {
-        state = GameState.Active;
-        weaponSelection.SetActive(false);
+        state = newState;
     }
 
     [ContextMenu(nameof(CreateLevels))]
@@ -87,27 +75,27 @@ public class GameplayManager : MonoBehaviour
         switch (state)
         {
             case GameState.InWeaponMenu:
-                if (Input.GetButtonDown("SelectButton"))
+                if (Input.GetButtonDown("SelectButton")) //quit weapon menu
                 {
-                    state = GameState.Active;
-                    weaponMenu.SetActive(false);
+                    SetState(GameState.Active);
+                    EventManager.Instance.onQuitSelect.Invoke();
                 }
 
                 break;
             case GameState.Paused:
-                if (Input.GetButtonDown("StartButton"))
-                    state = GameState.Active;
+                if (Input.GetButtonDown("StartButton")) //unpause game
+                    SetState(GameState.Active);
 
                 break;
             case GameState.Active:
-                if (Input.GetButtonDown("SelectButton"))
+                if (Input.GetButtonDown("SelectButton")) // pause the game and open the weapon menu
                 {
-                    state = GameState.InWeaponMenu;
-                    weaponMenu.SetActive(true);
+                    SetState(GameState.InWeaponMenu);
+                    EventManager.Instance.onSelectButton.Invoke();
                 }
 
-                if (Input.GetButtonDown("StartButton"))
-                    state = GameState.Paused;
+                if (Input.GetButtonDown("StartButton")) //pause game
+                    SetState(GameState.Paused);
 
                 break;
         }

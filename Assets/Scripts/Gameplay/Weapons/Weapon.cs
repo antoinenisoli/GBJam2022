@@ -47,7 +47,7 @@ public abstract class Weapon : ScriptableObject
         this.manager = manager;
     }
 
-    public void NextLevel()
+    public void UnlockLevel()
     {
         CurrentLevel++;
     }

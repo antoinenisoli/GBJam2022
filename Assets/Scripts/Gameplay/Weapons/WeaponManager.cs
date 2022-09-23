@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    public static WeaponManager Instance;
     [SerializeField] List<Weapon> weapons = new List<Weapon>();
     Dictionary<string, Weapon> storedWeapons = new Dictionary<string, Weapon>();
 
@@ -11,11 +12,17 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
+        if (!Instance)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         List<Weapon> copiedData = new List<Weapon>();
         for (int i = 0; i < weapons.Count; i++)
         {
             Weapon weapon = Instantiate(weapons[i]);
             storedWeapons.Add(weapon.name, weapon);
+            weapon.UnlockLevel();
             copiedData.Add(weapon);
         }
 
@@ -24,12 +31,16 @@ public class WeaponManager : MonoBehaviour
             item.Init(this);
     }
 
-    public void NewWeapon(Weapon weapon)
+    public void NewWeapon(Weapon newWeapon)
     {
-        if (storedWeapons.TryGetValue(weapon.name, out Weapon foundWeapon))
-            foundWeapon.CurrentLevel++;
+        if (storedWeapons.TryGetValue(newWeapon.name, out Weapon foundWeapon))
+            foundWeapon.UnlockLevel();
         else
-            weapons.Add(Instantiate(weapon));
+        {
+            Weapon weapon = Instantiate(newWeapon);
+            weapon.Init(this);
+            weapons.Add(weapon);
+        }
     }
 
     private void Update()

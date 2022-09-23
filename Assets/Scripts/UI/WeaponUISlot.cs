@@ -11,6 +11,6 @@ public class WeaponUISlot : MonoBehaviour
     public void SetWeapon(Weapon weapon)
     {
         weaponImage.sprite = weapon.icon;
-        levelText.text = "Level " + weapon.CurrentLevel;
+        levelText.text = "Level " + (weapon.CurrentLevel + 1);
     }
 }

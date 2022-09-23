@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyHealth:
     currentHealth: 0
-    maxHealth: 50
+    maxHealth: 100
   hitMat: {fileID: 2100000, guid: fb028d027b70c364aac618adb7fae780, type: 2}
   characterRenderer: {fileID: 6979197234608164232}
   hitDuration: 0.1

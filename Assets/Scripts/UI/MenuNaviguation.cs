@@ -19,6 +19,16 @@ public class MenuNaviguation : MonoBehaviour
     [SerializeField] FakeButton[] fakeButtons;
     float timer;
 
+    private void OnEnable()
+    {
+        StartCoroutine(UnscaledUpdate());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     int Index 
     { 
         get => index;
@@ -33,9 +43,9 @@ public class MenuNaviguation : MonoBehaviour
         }
     }
 
-    void Naviguation()
+    void Naviguation(float time)
     {
-        timer += Time.deltaTime;
+        timer += time;
         int axisInput = (int)Input.GetAxisRaw("Vertical");
         if (axisInput != 0)
         {
@@ -46,8 +56,19 @@ public class MenuNaviguation : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Return))
             fakeButtons[Index].selectEvent.Invoke();
+    }
+
+    IEnumerator UnscaledUpdate()
+    {
+        while (true)
+        {
+            yield return null;
+            print("unscaled update");
+            Naviguation(Time.unscaledDeltaTime);
+            MoveArrow();
+        }
     }
 
     void MoveArrow()
@@ -55,11 +76,5 @@ public class MenuNaviguation : MonoBehaviour
         Vector2 buttonPosition = arrow.position;
         buttonPosition.y = fakeButtons[Index].myButton.position.y;
         arrow.position = buttonPosition;
-    }
-
-    private void Update()
-    {
-        Naviguation();
-        MoveArrow();
     }
 }
