@@ -43,6 +43,12 @@ public abstract class Weapon : ScriptableObject
         }
     }
 
+    public bool LevelMax()
+    {
+        //Debug.Log(WeaponName + " " + CurrentLevel);
+        return CurrentLevel >= levels.Length - 1;
+    }
+
     public void Init(WeaponManager manager)
     {
         this.manager = manager;
@@ -51,7 +57,6 @@ public abstract class Weapon : ScriptableObject
     public void IncreaseLevel()
     {
         CurrentLevel++;
-        Debug.Log(name + " " + CurrentLevel);
     }
 
     public abstract void Execute();

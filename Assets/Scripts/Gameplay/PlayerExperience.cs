@@ -76,7 +76,6 @@ public class PlayerExperience
         {
             int count = i + 1;
             float diff = (float)count / (float)levels.Length;
-            Debug.Log(diff);
             int money = Mathf.RoundToInt(maxXpAmount * levelCurve.Evaluate(diff));
             levels[i] = new PlayerLevel(count, money);
         }

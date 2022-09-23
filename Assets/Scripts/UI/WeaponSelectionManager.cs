@@ -6,14 +6,21 @@ using UnityEngine;
 public class WeaponSelectionManager : MonoBehaviour
 {
     [SerializeField] [Range(0, 1)] float commonProb, specialProb, rareProb;
-    [SerializeField] Weapon[] allWeapons;
     List<Weapon> availableWeapons = new List<Weapon>();
     WeaponSelectionUI[] weaponSelectors;
 
     private void Awake()
     {
         weaponSelectors = GetComponentsInChildren<WeaponSelectionUI>();
+    }
 
+    private void OnEnable()
+    {
+        SetNewWeapons();
+    }
+
+    void SetNewWeapons()
+    {
         List<Weapon> randomWeapons = RandomWeapons();
         for (int i = 0; i < weaponSelectors.Length; i++)
             weaponSelectors[i].SetWeapon(randomWeapons[i]);
@@ -29,11 +36,11 @@ public class WeaponSelectionManager : MonoBehaviour
     public List<Weapon> RandomWeapons()
     {
         List<Weapon> randomWeapons = new List<Weapon>();
-        availableWeapons = allWeapons.ToList();
-
+        availableWeapons = new List<Weapon>(WeaponManager.Instance.AllWeapons);
         for (int i = 0; i < 3; i++)
         {
             float randomProb = Random.Range(0f, 1f);
+            //print(randomProb);
             List<Weapon> weaponList = new List<Weapon>();
 
             if (randomProb < rareProb)
@@ -46,6 +53,7 @@ public class WeaponSelectionManager : MonoBehaviour
             while (true)
             {
                 int randomIndex = Random.Range(0, weaponList.Count);
+                //print(randomIndex);
                 Weapon randomWeapon = weaponList[randomIndex];
                 if (!ContainsWeaponName(randomWeapon, randomWeapons))
                 {

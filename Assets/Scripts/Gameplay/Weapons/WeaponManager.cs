@@ -5,9 +5,11 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
-    [SerializeField] List<Weapon> weapons = new List<Weapon>();
+    [SerializeField] List<Weapon> allWeapons = new List<Weapon>();
+    [SerializeField] List<Weapon> unlockedWeapons = new List<Weapon>();
 
-    public List<Weapon> Weapons { get => weapons; }
+    public List<Weapon> UnlockedWeapons { get => unlockedWeapons; }
+    public List<Weapon> AllWeapons { get => allWeapons; }
 
     private void Awake()
     {
@@ -17,21 +19,39 @@ public class WeaponManager : MonoBehaviour
             Destroy(gameObject);
 
         List<Weapon> copiedData = new List<Weapon>();
-        for (int i = 0; i < weapons.Count; i++)
+        for (int i = 0; i < unlockedWeapons.Count; i++)
         {
-            Weapon weapon = Instantiate(weapons[i]);
+            Weapon weapon = Instantiate(unlockedWeapons[i]);
             copiedData.Add(weapon);
         }
 
-        weapons = copiedData;
-        foreach (var item in weapons)
+        unlockedWeapons = copiedData;
+        foreach (var item in unlockedWeapons)
             item.Init(this);
+    }
+
+    private void Start()
+    {
+        EventManager.Instance.onNewWeapon.AddListener(CheckWeapons);
+    }
+
+    void CheckWeapons()
+    {
+        foreach (var item in unlockedWeapons)
+        {
+            print(item.WeaponName + " " + item.CurrentLevel);
+            if (item.LevelMax())
+            {
+                Weapon weaponToRemove = SortWeapons()[item.WeaponName];
+                AllWeapons.Remove(weaponToRemove);
+            }
+        }
     }
 
     Dictionary<string, Weapon> SortWeapons()
     {
         Dictionary<string, Weapon> _storedWeapons = new Dictionary<string, Weapon>();
-        foreach (var item in weapons)
+        foreach (var item in unlockedWeapons)
             _storedWeapons.Add(item.WeaponName, item);
 
         return _storedWeapons;
@@ -45,13 +65,13 @@ public class WeaponManager : MonoBehaviour
         {
             Weapon weapon = Instantiate(newWeapon);
             weapon.Init(this);
-            weapons.Add(weapon);
+            unlockedWeapons.Add(weapon);
         }
     }
 
     private void Update()
     {
-        foreach (var item in weapons)
+        foreach (var item in unlockedWeapons)
             item.Update();
     }
 }

@@ -49,7 +49,7 @@ public class WeaponSelectionUI : MonoBehaviour
 
     bool ContainsWeaponName(Weapon weaponToCompare)
     {
-        foreach (var item in WeaponManager.Instance.Weapons)
+        foreach (var item in WeaponManager.Instance.UnlockedWeapons)
             if (weaponToCompare.WeaponName == item.WeaponName)
                 return true;
 

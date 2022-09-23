@@ -65,7 +65,7 @@ public class MenuNaviguation : MonoBehaviour
         while (true)
         {
             yield return null;
-            print("unscaled update");
+            //print("unscaled update");
             Naviguation(Time.unscaledDeltaTime);
             MoveArrow();
         }
