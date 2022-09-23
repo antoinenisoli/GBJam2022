@@ -8,9 +8,17 @@ public struct WeaponLevel
     public float rate, damage;
 }
 
+public enum WeaponQuality
+{
+    Common,
+    Special,
+    Rare,
+}
+
 public abstract class Weapon : ScriptableObject
 {
     [Header(nameof(Weapon))]
+    public WeaponQuality Quality;
     public Sprite icon;
     [SerializeField] int currentLevel;
     [TextArea] public string description;

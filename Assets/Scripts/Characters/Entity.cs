@@ -23,7 +23,12 @@ public abstract class Entity : MonoBehaviour
         MyHealth.CurrentHealth -= amount;
         hitTimer = 0;
         if (MyHealth.isDead)
-            Destroy(gameObject);
+            Death();
+    }
+
+    public virtual void Death()
+    {
+        Destroy(gameObject);
     }
 
     public virtual void TakeDmgDelayed(float amount, float delay)

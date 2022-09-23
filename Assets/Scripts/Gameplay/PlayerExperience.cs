@@ -18,7 +18,7 @@ public struct PlayerLevel
 [System.Serializable]
 public class PlayerExperience
 {
-    public int currentLevel = 1;
+    public int CurrentLevel = 0;
     [SerializeField] int experience;
     [SerializeField] AnimationCurve levelCurve;
     public int maxXpAmount = 50000;
@@ -31,37 +31,43 @@ public class PlayerExperience
         {
             if (value < 0)
                 value = 0;
-            else if (value > maxXpAmount)
+            if (value > maxXpAmount)
                 value = maxXpAmount;
 
-            CheckXP(value);
             experience = value;
         }
     }
 
     public PlayerLevel GetNextLevel()
     {
-        if (currentLevel < levels.Length)
-            return levels[currentLevel];
+        if (CurrentLevel < levels.Length)
+            return levels[CurrentLevel];
         else
             return levels[levels.Length - 1];
     }
 
-    void CheckXP(int xpAmount)
+    void CheckXP()
     {
-        if (currentLevel < levels.Length)
+        if (CurrentLevel < levels.Length)
         {
-            if (xpAmount >= levels[currentLevel + 1].stepAmount)
+            if (Experience >= levels[CurrentLevel].stepAmount)
             {
-                currentLevel++;
-                EventManager.Instance.onPlayerNextLevel.Invoke();
+                LevelUp();
             }
         }
+    }
+
+    void LevelUp()
+    {
+        Experience = 0;
+        CurrentLevel++;
+        EventManager.Instance.onPlayerNextLevel.Invoke();
     }
 
     public void AddXP(int amount)
     {
         Experience += amount;
+        CheckXP();
     }
 
     public void CreateLevels()

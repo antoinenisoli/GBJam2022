@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum LootQuality
+public enum ItemQuality
 {
     Low,
     Medium,
@@ -15,7 +15,7 @@ public class ItemSpawnManager : MonoBehaviour
     struct ItemData
     {
         public GameObject Prefab;
-        public LootQuality Quality;
+        public ItemQuality Quality;
     }
 
     [SerializeField] ItemData[] xpItems;
@@ -29,7 +29,7 @@ public class ItemSpawnManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public GameObject SpawnXPItem(LootQuality quality)
+    public GameObject SpawnXPItem(ItemQuality quality)
     {
         foreach (var item in xpItems)
             if (item.Quality == quality)

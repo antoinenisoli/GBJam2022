@@ -6,7 +6,7 @@ using UnityEngine;
 class SpawnData
 {
     [Range(0, 1)] public float Probability = 0.5f;
-    public LootQuality Quality;
+    public ItemQuality Quality;
 
     public void TrySpawn(Vector2 position)
     {
@@ -53,10 +53,12 @@ public class Enemy : Entity
         animator.AutoDestroy();
     }
 
-    private void OnDestroy()
+    public override void Death()
     {
         DetachSprite();
         spawnData.TrySpawn(transform.position);
         GameplayManager.Instance.RemoveEnemy(this);
+
+        base.Death();
     }
 }

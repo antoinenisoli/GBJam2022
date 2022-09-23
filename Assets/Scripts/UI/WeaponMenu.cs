@@ -20,7 +20,7 @@ public class WeaponMenu : MonoBehaviour
         foreach (var item in slots)
             item.gameObject.SetActive(false);
 
-        for (int i = 0; i < weaponManager.Weapons.Length; i++)
+        for (int i = 0; i < weaponManager.Weapons.Count; i++)
         {
             slots[i].gameObject.SetActive(true);
             slots[i].SetWeapon(weaponManager.Weapons[i]);

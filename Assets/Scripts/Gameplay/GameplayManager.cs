@@ -5,7 +5,8 @@ using UnityEngine;
 enum GameState
 {
     Active,
-    InMenu,
+    InWeaponMenu,
+    InWeaponSelection,
     Paused,
 }
 
@@ -15,6 +16,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] GameState state;
     public PlayerExperience PlayerEXP;
     [SerializeField] GameObject weaponMenu;
+    GameObject weaponSelection;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
 
     private void Awake()
@@ -24,7 +26,14 @@ public class GameplayManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        weaponSelection = FindObjectOfType<WeaponSelectionManager>().gameObject;
         weaponMenu.SetActive(false);
+    }
+
+    private void Start()
+    {
+        EventManager.Instance.onPlayerNextLevel.AddListener(OpenWeaponSelection);
+        EventManager.Instance.onNewWeapon.AddListener(CloseWeaponSelection);
     }
 
     public void AddEnemy(Enemy enemy)
@@ -55,6 +64,18 @@ public class GameplayManager : MonoBehaviour
         return closestEnemy;
     }
 
+    public void OpenWeaponSelection()
+    {
+        state = GameState.InWeaponSelection;
+        weaponSelection.SetActive(true);
+    }
+
+    public void CloseWeaponSelection()
+    {
+        state = GameState.Active;
+        weaponSelection.SetActive(false);
+    }
+
     [ContextMenu(nameof(CreateLevels))]
     public void CreateLevels()
     {
@@ -65,7 +86,7 @@ public class GameplayManager : MonoBehaviour
     {
         switch (state)
         {
-            case GameState.InMenu:
+            case GameState.InWeaponMenu:
                 if (Input.GetButtonDown("SelectButton"))
                 {
                     state = GameState.Active;
@@ -81,7 +102,7 @@ public class GameplayManager : MonoBehaviour
             case GameState.Active:
                 if (Input.GetButtonDown("SelectButton"))
                 {
-                    state = GameState.InMenu;
+                    state = GameState.InWeaponMenu;
                     weaponMenu.SetActive(true);
                 }
 
