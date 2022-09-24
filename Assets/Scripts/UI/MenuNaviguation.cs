@@ -16,6 +16,7 @@ public class MenuNaviguation : MonoBehaviour
 {
     [SerializeField] Transform arrow;
     [SerializeField] int index;
+    [SerializeField] bool vertical = true;
     [SerializeField] FakeButton[] fakeButtons;
     float timer;
 
@@ -46,13 +47,18 @@ public class MenuNaviguation : MonoBehaviour
     void Naviguation(float time)
     {
         timer += time;
-        int axisInput = (int)Input.GetAxisRaw("Vertical");
+        int axisInput;
+        if (vertical)
+            axisInput = (int)-Input.GetAxisRaw("Vertical");
+        else
+            axisInput = (int)Input.GetAxisRaw("Horizontal");
+
         if (axisInput != 0)
         {
             if (timer > 0.2f)
             {
                 timer = 0;
-                Index -= axisInput;
+                Index += axisInput;
             }
         }
 
@@ -74,7 +80,11 @@ public class MenuNaviguation : MonoBehaviour
     void MoveArrow()
     {
         Vector2 buttonPosition = arrow.position;
-        buttonPosition.y = fakeButtons[Index].myButton.position.y;
+        if (vertical)
+            buttonPosition.y = fakeButtons[Index].myButton.position.y;
+        else
+            buttonPosition.x = fakeButtons[Index].myButton.position.x;
+
         arrow.position = buttonPosition;
     }
 }

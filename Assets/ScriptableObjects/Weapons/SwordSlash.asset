@@ -19,11 +19,15 @@ MonoBehaviour:
   description: Attack to the left and to the right of your hero.
   levels:
   - rate: 2
-    damage: 100
+    damage: 50
   - rate: 1.5
+    damage: 75
+  - rate: 1
+    damage: 100
+  - rate: 1
     damage: 150
   - rate: 1
-    damage: 200
+    damage: 150
   attackRadius: 7
   fxName: Slash
   targetLayer:
