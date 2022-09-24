@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float followSpeed = 10f;
+    PlayerController player => PlayerController.Instance;
 
     public void Follow(Vector2 targetPosition)
     {
@@ -15,7 +16,9 @@ public class CameraManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (target)
+        if (player)
+            Follow(player.transform.position);
+        else if (target)
             Follow(target.position);
     }
 }
