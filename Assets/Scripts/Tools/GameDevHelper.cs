@@ -30,6 +30,13 @@ public class GameDevHelper : MonoBehaviour
         return randomColor;
     }
 
+    public static Vector2 RandomPosition(float radius)
+    {
+        Vector2 circle = Random.insideUnitCircle;
+        Vector2 random = new Vector2(circle.x, circle.y) * radius;
+        return random;
+    }
+
     public static T RandomEnum<T>()
     {
         System.Array array = System.Enum.GetValues(typeof(T));
