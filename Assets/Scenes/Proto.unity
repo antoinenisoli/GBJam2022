@@ -4522,6 +4522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 338641753}
   index: 0
+  vertical: 1
   fakeButtons:
   - myButton: {fileID: 1572699768}
     selectEvent:
