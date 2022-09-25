@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6979197234103918617}
   - component: {fileID: 6979197234103918616}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6979197234103918620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.61, y: 12.47, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5250205511075986512}
@@ -133,7 +133,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.8285146}
   serializedVersion: 2
-  m_Radius: 1.3285148
+  m_Radius: 1.03
 --- !u!50 &6979197234103918615
 Rigidbody2D:
   serializedVersion: 4

@@ -38,7 +38,7 @@ public class ItemSpawnManager : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && PlayerController.Instance)
             Gizmos.DrawWireSphere(PlayerController.Instance.transform.position, itemSpawnRadius);
         else
             Gizmos.DrawWireSphere(transform.position, itemSpawnRadius);
@@ -50,6 +50,8 @@ public class ItemSpawnManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        spawnDelay = Random.Range(randomDelay.x, randomDelay.y);
     }
 
     public GameObject SpawnXPItem(ItemQuality quality)
@@ -79,7 +81,7 @@ public class ItemSpawnManager : MonoBehaviour
 
     void ManageItemSpawn()
     {
-        if (items.Length <= 0 || PlayerController.Instance)
+        if (items.Length <= 0 || !PlayerController.Instance)
             return;
 
         spawnTimer += Time.deltaTime;

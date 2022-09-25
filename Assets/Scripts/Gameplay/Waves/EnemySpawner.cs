@@ -8,11 +8,13 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] int spawnCount = 3;
     [SerializeField] float positionRandomOffset = 3f;
-    [SerializeField] GameObject enemyPrefab;
     [SerializeField] Transform spawnParent;
-    [SerializeField] Vector2 randomCooldown = new Vector2(50, 60);
-    float cooldown;
-    float timer;
+    Vector2 startOffset;
+
+    private void Start()
+    {
+        startOffset = transform.position - PlayerController.Instance.transform.position;
+    }
 
     private void OnDrawGizmos()
     {
@@ -26,18 +28,6 @@ public class EnemySpawner : MonoBehaviour
 #endif
     }
 
-    private void Start()
-    {
-        timer = 0;
-        cooldown = Random.Range(randomCooldown.x, randomCooldown.y);
-    }
-
-    void ResetTimer()
-    {
-        Start();
-        Spawn();
-    }
-
     public Vector2 RandomPosition()
     {
         Vector2 circle = Random.insideUnitCircle;
@@ -45,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
         return random;
     }
 
-    public void Spawn()
+    public void Spawn(GameObject enemyPrefab)
     {
         for (int i = 0; i < spawnCount; i++)
         {
@@ -56,8 +46,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= cooldown)
-            ResetTimer();
+        transform.position = PlayerController.Instance.transform.position - (Vector3)startOffset;
     }
 }
