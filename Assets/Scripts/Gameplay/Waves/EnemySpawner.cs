@@ -46,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        transform.position = PlayerController.Instance.transform.position - (Vector3)startOffset;
+        if (PlayerController.Instance)
+            transform.position = PlayerController.Instance.transform.position - (Vector3)startOffset;
     }
 }

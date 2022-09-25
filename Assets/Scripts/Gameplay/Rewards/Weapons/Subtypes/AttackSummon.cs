@@ -6,7 +6,7 @@ using UnityEngine;
 public class AttackSummon : Weapon
 {
     [Header(nameof(AttackSummon))]
-    [SerializeField] float spawnRadius = 30f, attackRadius = 5f, delayBeforeHit = 0f;
+    [SerializeField] float spawnRadius = 30f, attackRadius = 5f;
     [SerializeField] string fxName = "Strike";
     [SerializeField] LayerMask targetLayer;
 

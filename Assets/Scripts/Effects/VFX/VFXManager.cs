@@ -38,7 +38,7 @@ public static class VFXManager
                 Debug.LogError("No vfx found with this name : " + name);
             else
             {
-                GameObject newVFX = Object.Instantiate(prefab, pos, Quaternion.identity, parent);
+                GameObject newVFX = Object.Instantiate(prefab, pos, prefab.transform.rotation, parent);
                 if (destroy)
                     Object.Destroy(newVFX, 1.5f);
 

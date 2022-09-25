@@ -10,31 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fde425de98d63e745bce0677974e736e, type: 3}
-  m_Name: MageWave
+  m_Name: ThunderSlash
   m_EditorClassIdentifier: 
-  WeaponName: MageWave
-  Quality: 0
-  icon: {fileID: 21300000, guid: 03183b36391e2374784bd26ebb91d8f3, type: 3}
+  WeaponName: ThunderSlash
+  Quality: 1
+  icon: {fileID: 21300000, guid: 529b65591b0e8684a83a9f7754fcca27, type: 3}
+  delayBeforeHit: 0
   currentLevel: 0
-  description: Cast a magic wave that goes up or down.
+  description: Cast a thunder ball to the left or to the right of your hero.
   levels:
-  - rate: 2
-    damage: 50
-  - rate: 1.5
-    damage: 75
-  - rate: 1
+  - rate: 4
     damage: 100
-  - rate: 1
+  - rate: 3.7
+    damage: 125
+  - rate: 3.5
     damage: 150
-  - rate: 1
-    damage: 150
-  attackRadius: 7
-  fxName: AirBurst
+  - rate: 3.3
+    damage: 175
+  - rate: 3
+    damage: 200
+  attackRadius: 4
+  fxName: ThunderSlash
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  flipX: 1
-  flipY: 1
+  flipX: 0
+  flipY: 0
   attackPositions:
-  - {x: 0, y: 5}
-  - {x: 0, y: -5}
+  - {x: 3.5, y: 0}
+  - {x: -3.5, y: 0}

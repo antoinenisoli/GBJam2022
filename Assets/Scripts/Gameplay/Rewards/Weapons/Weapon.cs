@@ -21,6 +21,7 @@ public abstract class Weapon : Reward
     public string WeaponName;
     public WeaponQuality Quality;
     public Sprite icon;
+    [SerializeField] protected float delayBeforeHit = 0f;
     [SerializeField] int currentLevel;
     [TextArea] public string description;
     [SerializeField] protected WeaponLevel[] levels = new WeaponLevel[3];

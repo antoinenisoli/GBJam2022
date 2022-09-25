@@ -9,6 +9,7 @@ public class MeleeWeapon : Weapon
     [SerializeField] float attackRadius = 2f;
     [SerializeField] string fxName = "Slash";
     [SerializeField] LayerMask targetLayer;
+    [SerializeField] bool flipX, flipY;
     [SerializeField] Vector2[] attackPositions;
     int index = 0;
 
@@ -26,6 +27,13 @@ public class MeleeWeapon : Weapon
         GameObject fx = VFXManager.PlayVFX(fxName, worldPos, false, manager.transform);
         if (worldPos.x < manager.transform.position.x)
             fx.GetComponentInChildren<SpriteRenderer>().flipX = true;
+        if (worldPos.y < manager.transform.position.y)
+            fx.GetComponentInChildren<SpriteRenderer>().flipY = true;
+
+        if (flipX)
+            fx.GetComponentInChildren<SpriteRenderer>().flipX = worldPos.x < manager.transform.position.x;
+        if (flipY)
+            fx.GetComponentInChildren<SpriteRenderer>().flipX = worldPos.y > manager.transform.position.y;
 
         Collider2D[] targets = Physics2D.OverlapCircleAll(worldPos, attackRadius, targetLayer);
         foreach (var item in targets)
@@ -34,7 +42,10 @@ public class MeleeWeapon : Weapon
             if (enemy)
             {
                 VFXManager.PlayVFX("HitSpark", enemy.transform.position);
-                enemy.TakeDmg(LevelData.damage);
+                if (delayBeforeHit > 0)
+                    enemy.TakeDmgDelayed(LevelData.damage, delayBeforeHit);
+                else
+                    enemy.TakeDmg(LevelData.damage);
             }
         }
     }

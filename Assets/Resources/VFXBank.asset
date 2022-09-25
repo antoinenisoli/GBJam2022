@@ -23,3 +23,7 @@ MonoBehaviour:
     prefab: {fileID: 4790161993305782431, guid: 2ec49218db50e494cb1d999b2553ee1b, type: 3}
   - name: ExplosionFX
     prefab: {fileID: 7938250568673893837, guid: 702da67379e28344498109967b3ccc21, type: 3}
+  - name: AirBurst
+    prefab: {fileID: 5560325592469657342, guid: 272ca5ad44ff4f640ab47b67c8b94c76, type: 3}
+  - name: ThunderSlash
+    prefab: {fileID: 4769089283006975364, guid: b39bb37c04d2c694f8aef2a60c010086, type: 3}
