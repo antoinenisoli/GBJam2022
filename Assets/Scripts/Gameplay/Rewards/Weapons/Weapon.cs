@@ -46,8 +46,8 @@ public abstract class Weapon : Reward
 
     public bool LevelMax()
     {
-        Debug.Log(WeaponName + " level : " + CurrentLevel + " level count : " + levels.Length);
-        return CurrentLevel >= levels.Length - 1;
+        bool condition = CurrentLevel >= levels.Length - 1;
+        return condition;
     }
 
     public void Init(WeaponContainer manager)

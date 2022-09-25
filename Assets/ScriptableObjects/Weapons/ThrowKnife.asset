@@ -15,6 +15,7 @@ MonoBehaviour:
   WeaponName: ThrowKnife
   Quality: 0
   icon: {fileID: 21300000, guid: c7633d9d351d2194fa2b0bf3d11fb111, type: 3}
+  delayBeforeHit: 0
   currentLevel: 0
   description: Throw a knife to the closest enemy.
   levels:

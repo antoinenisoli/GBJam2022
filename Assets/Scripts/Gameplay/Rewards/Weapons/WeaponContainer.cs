@@ -37,14 +37,8 @@ public class WeaponContainer : MonoBehaviour
     void CheckWeapons()
     {
         foreach (var item in unlockedWeapons)
-        {
-            //print(item.WeaponName + " " + item.CurrentLevel);
             if (item.LevelMax())
-            {
-                Weapon weaponToRemove = SortWeapons()[item.WeaponName];
-                AllWeapons.Remove(weaponToRemove);
-            }
-        }
+                AllWeapons.RemoveAll(s => s.WeaponName == item.WeaponName);
     }
 
     Dictionary<string, Weapon> SortWeapons()

@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlockedWeapons:
-  - {fileID: 11400000, guid: 77019779bd0272a4498569f2e3735fb0, type: 2}
+  - {fileID: 11400000, guid: 3a07b4420ef2b0e43bb55fbe3c4a1358, type: 2}
 --- !u!1 &824228568888991654
 GameObject:
   m_ObjectHideFlags: 0
