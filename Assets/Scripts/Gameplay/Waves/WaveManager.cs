@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] string totalMinutes;
     [SerializeField] Wave[] waves;
     Queue<Wave> waveQueue = new Queue<Wave>();
     Wave currentWave;
+
+    private void OnValidate()
+    {
+        float minutes = 0;
+        for (int i = 0; i < waves.Length; i++)
+        {
+            waves[i].Name = "wave" + i;
+            minutes += waves[i].duration;
+        }
+
+        minutes /= 60;
+        totalMinutes = minutes.ToString("");
+    }
 
     private void Awake()
     {
@@ -21,17 +35,18 @@ public class WaveManager : MonoBehaviour
     {
         currentWave = null;
         Wave newWave = waveQueue.Dequeue();
+        print($"new wave started : {newWave.Name} for {newWave.duration} minutes");
         yield return new WaitForSeconds(newWave.startDelay);
         currentWave = newWave;
     }
 
     void Spawning()
     {
-        if (waveQueue.Count <= 0 || currentWave == null)
+        if (currentWave == null)
             return;
 
         currentWave.ManageSpawning();
-        if (currentWave.Update())
+        if (currentWave.Update() && waveQueue.Count > 0)
             StartCoroutine(NewWave());
     }
 

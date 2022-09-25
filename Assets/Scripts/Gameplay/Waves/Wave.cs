@@ -7,7 +7,8 @@ public class Wave
 {
     public string Name;
     public float startDelay;
-    [SerializeField] float duration = 1f;
+    public float duration = 1f;
+    public bool infinite;
     [SerializeField] Vector2 randomCooldown = new Vector2(5, 6);
     [SerializeField] EnemySpawner[] workingSpawners;
     [SerializeField] GameObject[] enemiesToSpawn;
@@ -19,8 +20,16 @@ public class Wave
         cooldown = Random.Range(randomCooldown.x, randomCooldown.y);
     }
 
+    float GetTime()
+    {
+        return 60 * duration;
+    }
+
     public bool Update()
     {
+        if (infinite)
+            return false;
+
         waveTimer += Time.deltaTime;
         if (waveTimer > duration)
             return true;
@@ -41,9 +50,10 @@ public class Wave
 
     public void SpawnEnemies()
     {
-        foreach (var item in workingSpawners)
+        foreach (var spawner in workingSpawners)
         {
-            item.Spawn(enemiesToSpawn[0]);
+            foreach (var enemy in enemiesToSpawn)
+                spawner.Spawn(enemy);
         }
     }
 }

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 5236463267429813237}
   - component: {fileID: 5236463267429813236}
   m_Layer: 6
-  m_Name: Goblin
+  m_Name: Enemy_Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e83cde6c2af95846812ffdb105ebbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 7
   minDistance: 3
 --- !u!1001 &5236463268609919793
 PrefabInstance:

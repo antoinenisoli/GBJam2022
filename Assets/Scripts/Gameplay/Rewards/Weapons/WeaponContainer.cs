@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponContainer : MonoBehaviour
 {
-    public static WeaponManager Instance;
-    [SerializeField] List<Weapon> allWeapons = new List<Weapon>();
+    public static WeaponContainer Instance;
     [SerializeField] List<Weapon> unlockedWeapons = new List<Weapon>();
 
     public List<Weapon> UnlockedWeapons { get => unlockedWeapons; }
-    public List<Weapon> AllWeapons { get => allWeapons; }
+    List<Weapon> AllWeapons => RewardManager.Instance.AllWeapons;
 
     private void Awake()
     {

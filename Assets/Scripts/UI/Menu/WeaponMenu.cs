@@ -5,11 +5,11 @@ using UnityEngine;
 public class WeaponMenu : MonoBehaviour
 {
     WeaponUISlot[] slots;
-    WeaponManager weaponManager;
+    WeaponContainer weaponManager;
 
     private void Awake()
     {
-        weaponManager = FindObjectOfType<WeaponManager>();
+        weaponManager = FindObjectOfType<WeaponContainer>();
         slots = GetComponentsInChildren<WeaponUISlot>();
         foreach (var item in slots)
             item.gameObject.SetActive(false);

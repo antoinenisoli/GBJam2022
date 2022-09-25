@@ -15,7 +15,7 @@ public enum WeaponQuality
     Rare,
 }
 
-public abstract class Weapon : ScriptableObject
+public abstract class Weapon : Reward
 {
     [Header(nameof(Weapon))]
     public string WeaponName;
@@ -24,7 +24,7 @@ public abstract class Weapon : ScriptableObject
     [SerializeField] int currentLevel;
     [TextArea] public string description;
     [SerializeField] protected WeaponLevel[] levels = new WeaponLevel[3];
-    protected WeaponManager manager;
+    protected WeaponContainer manager;
     float timer = 0;
 
     public WeaponLevel LevelData => levels[CurrentLevel];
@@ -45,11 +45,11 @@ public abstract class Weapon : ScriptableObject
 
     public bool LevelMax()
     {
-        Debug.Log(WeaponName + " level : " + CurrentLevel + "level count : " + levels.Length);
+        Debug.Log(WeaponName + " level : " + CurrentLevel + " level count : " + levels.Length);
         return CurrentLevel >= levels.Length - 1;
     }
 
-    public void Init(WeaponManager manager)
+    public void Init(WeaponContainer manager)
     {
         this.manager = manager;
     }

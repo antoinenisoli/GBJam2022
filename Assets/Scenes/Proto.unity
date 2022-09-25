@@ -566,6 +566,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0956bbde0abef0544bf866a4d2cf87ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &176144333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176144334}
+  - component: {fileID: 176144335}
+  m_Layer: 0
+  m_Name: RewardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &176144334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176144333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1195449243}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176144335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176144333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b683be11c9d23c643a465b9b3df7c46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allWeapons:
+  - {fileID: 11400000, guid: ecc47a998265fa8479c3209545a366ac, type: 2}
+  - {fileID: 11400000, guid: f93315a1efad20d449d410c7aa460dad, type: 2}
+  - {fileID: 11400000, guid: a83a2f41e9031a845a726df6a23fe80a, type: 2}
+  - {fileID: 11400000, guid: 8e81e9d8efa426448bf4ef522c52157e, type: 2}
+  - {fileID: 11400000, guid: f9b2451be8aa51e47b41f0888b17b557, type: 2}
+  - {fileID: 11400000, guid: 532f6b13dddd8214f9aa52ad078958a6, type: 2}
+  - {fileID: 11400000, guid: 31231b339032d96448b964d3b18bcc4f, type: 2}
 --- !u!124 &307017826
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2070,6 +2121,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786270578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 375409710432736996, guid: b09da90ba98d48d4595f0f08b2fa6b92, type: 3}
+  m_PrefabInstance: {fileID: 7828420686703826641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b99ad3fd664ae489278ead47fa7b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &787642580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2529,18 +2591,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemParent: {fileID: 683841741}
   itemSpawnRadius: 60
-  randomDelay: {x: 5, y: 15}
+  randomDelay: {x: 10, y: 15}
   items:
   - Prefab: {fileID: 1110774907355744772, guid: 8964491ca921afc4fa64d17f108f6d7c, type: 3}
-    Probability: 0.108
+    Probability: 0.512
+  - Prefab: {fileID: 6395696451826515574, guid: 6528c12ae9528e24fb63337aac3c6307, type: 3}
+    Probability: 0.244
+  - Prefab: {fileID: 5581592514391732556, guid: 522a4cd79dacf2f46a3a74c9def47a04, type: 3}
+    Probability: 0.024
   - Prefab: {fileID: 8301128430491994323, guid: 6bf4053cff840404496b8085a9786b86, type: 3}
-    Probability: 0.087
+    Probability: 0.31
+  - Prefab: {fileID: 8380697130717941497, guid: 53439bd06d6882240b23f1bea0b8ea0f, type: 3}
+    Probability: 0.105
+  - Prefab: {fileID: 7823050782833876229, guid: 52a8ff0da89cbe0459176f997c6a62e0, type: 3}
+    Probability: 0.017
   xpItems:
   - Prefab: {fileID: 8301128430491994323, guid: 6bf4053cff840404496b8085a9786b86, type: 3}
     Quality: 0
-  - Prefab: {fileID: 8301128430491994323, guid: 6bf4053cff840404496b8085a9786b86, type: 3}
+  - Prefab: {fileID: 8380697130717941497, guid: 53439bd06d6882240b23f1bea0b8ea0f, type: 3}
     Quality: 1
-  - Prefab: {fileID: 8301128430491994323, guid: 6bf4053cff840404496b8085a9786b86, type: 3}
+  - Prefab: {fileID: 7823050782833876229, guid: 52a8ff0da89cbe0459176f997c6a62e0, type: 3}
     Quality: 2
 --- !u!1 &1114538866
 GameObject:
@@ -2808,6 +2878,7 @@ Transform:
   - {fileID: 353015955}
   - {fileID: 1108908115}
   - {fileID: 1200024403}
+  - {fileID: 176144334}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2859,25 +2930,158 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454efafbeb31e104593c1f5d54cc3bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalMinutes: 11
   waves:
   - Name: wave0
     startDelay: 0
-    duration: 15
-    randomCooldown: {x: 1, y: 2}
+    duration: 30
+    infinite: 0
+    randomCooldown: {x: 5, y: 6}
     workingSpawners:
     - {fileID: 111155224}
     - {fileID: 1837599350}
     enemiesToSpawn:
     - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
   - Name: wave1
-    startDelay: 0
-    duration: 15
+    startDelay: 5
+    duration: 45
+    infinite: 0
+    randomCooldown: {x: 2, y: 3}
+    workingSpawners:
+    - {fileID: 111155224}
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    - {fileID: 426734536}
+    - {fileID: 786270578}
+    enemiesToSpawn:
+    - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
+  - Name: wave2
+    startDelay: 5
+    duration: 60
+    infinite: 0
+    randomCooldown: {x: 0, y: 1}
+    workingSpawners:
+    - {fileID: 111155224}
+    - {fileID: 1837599350}
+    enemiesToSpawn:
+    - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
+  - Name: wave3
+    startDelay: 5
+    duration: 60
+    infinite: 0
+    randomCooldown: {x: 3, y: 6}
+    workingSpawners:
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    - {fileID: 426734536}
+    enemiesToSpawn:
+    - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
+  - Name: wave4
+    startDelay: 5
+    duration: 60
+    infinite: 0
+    randomCooldown: {x: 0, y: 1}
+    workingSpawners:
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    - {fileID: 426734536}
+    - {fileID: 786270578}
+    - {fileID: 111155224}
+    enemiesToSpawn:
+    - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
+  - Name: wave5
+    startDelay: 5
+    duration: 30
+    infinite: 0
     randomCooldown: {x: 1, y: 2}
     workingSpawners:
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    - {fileID: 111155224}
+    - {fileID: 786270578}
+    enemiesToSpawn:
+    - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
+  - Name: wave6
+    startDelay: 5
+    duration: 60
+    infinite: 0
+    randomCooldown: {x: 2, y: 3}
+    workingSpawners:
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
     - {fileID: 426734536}
+    enemiesToSpawn:
+    - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
+  - Name: wave7
+    startDelay: 5
+    duration: 45
+    infinite: 0
+    randomCooldown: {x: 10, y: 15}
+    workingSpawners:
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    enemiesToSpawn:
+    - {fileID: 3009681733412727490, guid: 8d515b95932f9e54ba9ad4d15e2d4498, type: 3}
+  - Name: wave8
+    startDelay: 5
+    duration: 60
+    infinite: 0
+    randomCooldown: {x: 0.5, y: 1}
+    workingSpawners:
+    - {fileID: 111155224}
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    - {fileID: 426734536}
+    - {fileID: 786270578}
+    enemiesToSpawn:
+    - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
+  - Name: wave9
+    startDelay: 5
+    duration: 60
+    infinite: 0
+    randomCooldown: {x: 0.5, y: 1}
+    workingSpawners:
+    - {fileID: 111155224}
+    - {fileID: 1837599350}
     - {fileID: 1317912124}
     enemiesToSpawn:
     - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
+  - Name: wave10
+    startDelay: 0
+    duration: 45
+    infinite: 0
+    randomCooldown: {x: 2, y: 4}
+    workingSpawners:
+    - {fileID: 111155224}
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    enemiesToSpawn:
+    - {fileID: 3009681733412727490, guid: 8d515b95932f9e54ba9ad4d15e2d4498, type: 3}
+  - Name: wave11
+    startDelay: 0
+    duration: 45
+    infinite: 0
+    randomCooldown: {x: 3, y: 5}
+    workingSpawners:
+    - {fileID: 111155224}
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    enemiesToSpawn:
+    - {fileID: 3009681733412727490, guid: 8d515b95932f9e54ba9ad4d15e2d4498, type: 3}
+    - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
+    - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
+  - Name: wave12
+    startDelay: 0
+    duration: 60
+    infinite: 1
+    randomCooldown: {x: 0, y: 0}
+    workingSpawners:
+    - {fileID: 111155224}
+    - {fileID: 1837599350}
+    - {fileID: 1317912124}
+    enemiesToSpawn:
+    - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
+    - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
 --- !u!1 &1218319949
 GameObject:
   m_ObjectHideFlags: 0
@@ -4724,7 +4928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commonProb: 1
-  specialProb: 0.1
+  specialProb: 0.325
   rareProb: 0
 --- !u!1 &1665995843
 GameObject:
@@ -5046,7 +5250,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    maxXpAmount: 200
+    maxXpAmount: 150
     levels:
     - count: 1
       stepAmount: 26

@@ -36,7 +36,7 @@ public class WeaponSelectionManager : MonoBehaviour
     public List<Weapon> RandomWeapons()
     {
         List<Weapon> randomWeapons = new List<Weapon>();
-        availableWeapons = new List<Weapon>(WeaponManager.Instance.AllWeapons);
+        availableWeapons = new List<Weapon>(RewardManager.Instance.AllWeapons);
         for (int i = 0; i < 3; i++)
         {
             float randomProb = Random.Range(0f, 1f);
@@ -74,7 +74,7 @@ public class WeaponSelectionManager : MonoBehaviour
 
     public void SelectWeapon(int i) //event method
     {
-        WeaponManager.Instance.NewWeapon(weaponSelectors[i].myWeapon);
+        WeaponContainer.Instance.NewWeapon(weaponSelectors[i].myWeapon);
         EventManager.Instance.onNewWeapon.Invoke();
     }
 }

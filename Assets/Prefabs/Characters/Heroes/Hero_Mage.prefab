@@ -65,7 +65,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   hitMat: {fileID: 2100000, guid: fb028d027b70c364aac618adb7fae780, type: 2}
   characterRenderer: {fileID: 824228568888991649}
   hitDuration: 0.3
-  speed: 14.5
+  speed: 16
   collisionDmg: 10
 --- !u!114 &824228568111190365
 MonoBehaviour:
@@ -105,14 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa3931a7fc50374bb46d4aa87c04552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allWeapons:
-  - {fileID: 11400000, guid: ecc47a998265fa8479c3209545a366ac, type: 2}
-  - {fileID: 11400000, guid: f93315a1efad20d449d410c7aa460dad, type: 2}
-  - {fileID: 11400000, guid: a83a2f41e9031a845a726df6a23fe80a, type: 2}
-  - {fileID: 11400000, guid: 8e81e9d8efa426448bf4ef522c52157e, type: 2}
-  - {fileID: 11400000, guid: f9b2451be8aa51e47b41f0888b17b557, type: 2}
-  - {fileID: 11400000, guid: 532f6b13dddd8214f9aa52ad078958a6, type: 2}
-  - {fileID: 11400000, guid: 31231b339032d96448b964d3b18bcc4f, type: 2}
   unlockedWeapons:
   - {fileID: 11400000, guid: ecc47a998265fa8479c3209545a366ac, type: 2}
 --- !u!1 &824228568888991654

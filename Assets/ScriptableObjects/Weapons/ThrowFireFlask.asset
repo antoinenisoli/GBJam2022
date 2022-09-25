@@ -20,9 +20,14 @@ MonoBehaviour:
     at the impact point.
   levels:
   - rate: 3
+    damage: 40
+  - rate: 2.6
+    damage: 80
+  - rate: 2.2
     damage: 100
-  - rate: 3
-    damage: 125
-  - rate: 3
+  - rate: 2
+    damage: 120
+  - rate: 2
     damage: 150
+  range: 30
   projectilePrefab: {fileID: 2707592325547552011, guid: c032e098951f2b743bd74104b7a05236, type: 3}

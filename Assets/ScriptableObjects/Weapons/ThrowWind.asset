@@ -23,6 +23,11 @@ MonoBehaviour:
     damage: 1
   - rate: 4
     damage: 5
-  - rate: 3
+  - rate: 3.5
     damage: 10
+  - rate: 3.25
+    damage: 15
+  - rate: 3
+    damage: 25
+  range: 60
   projectilePrefab: {fileID: 7335037475274817741, guid: 4dd66c53e9c0cec48ae2f197978a4af8, type: 3}

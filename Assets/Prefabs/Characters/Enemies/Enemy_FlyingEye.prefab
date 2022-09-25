@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3009681733412727495}
   - component: {fileID: 3009681733412727494}
   m_Layer: 6
-  m_Name: FlyingEye
+  m_Name: Enemy_FlyingEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e83cde6c2af95846812ffdb105ebbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   minDistance: 4
 --- !u!1 &7828242764748257983
 GameObject:
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: -4795363162621231457, guid: 2e4b9347395877241aa3026417184a4d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
