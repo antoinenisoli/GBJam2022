@@ -8,7 +8,13 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected float speed = 5f, lifeTime;
     [SerializeField] protected int collisionResistance;
     [SerializeField] protected bool lookAtTarget;
+    [SerializeField] string soundName;
     protected Vector2 trajectory;
+
+    private void Awake()
+    {
+        SoundManager.Instance.PlayAudio(soundName);
+    }
 
     public void Shoot(Vector2 trajectory)
     {

@@ -148,3 +148,4 @@ MonoBehaviour:
   lifeTime: 1
   collisionResistance: 0
   lookAtTarget: 1
+  soundName: knife_throw

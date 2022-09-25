@@ -31,6 +31,7 @@ MonoBehaviour:
     damage: 150
   attackRadius: 7
   fxName: Slash
+  soundName: sword_woosh
   targetLayer:
     serializedVersion: 2
     m_Bits: 64

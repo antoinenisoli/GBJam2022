@@ -163,3 +163,4 @@ MonoBehaviour:
   lifeTime: 3
   collisionResistance: 10
   lookAtTarget: 0
+  soundName: axe_throw

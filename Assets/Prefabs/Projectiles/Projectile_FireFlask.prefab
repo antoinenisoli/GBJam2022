@@ -163,7 +163,9 @@ MonoBehaviour:
   lifeTime: 2
   collisionResistance: 0
   lookAtTarget: 0
+  soundName: bomb_throw
   areaRadius: 8
+  destroySound: bomb_explode
   targetLayer:
     serializedVersion: 2
     m_Bits: 64

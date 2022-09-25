@@ -7,7 +7,7 @@ public class MeleeWeapon : Weapon
 {
     [Header(nameof(MeleeWeapon))]
     [SerializeField] float attackRadius = 2f;
-    [SerializeField] string fxName = "Slash";
+    [SerializeField] string fxName = "Slash", soundName;
     [SerializeField] LayerMask targetLayer;
     [SerializeField] bool flipX, flipY;
     [SerializeField] Vector2[] attackPositions;
@@ -25,6 +25,8 @@ public class MeleeWeapon : Weapon
     {
         Vector2 worldPos = (Vector2)manager.transform.position + attackPos;
         GameObject fx = VFXManager.PlayVFX(fxName, worldPos, false, manager.transform);
+        SoundManager.Instance.PlayAudio(soundName);
+
         if (worldPos.x < manager.transform.position.x)
             fx.GetComponentInChildren<SpriteRenderer>().flipX = true;
         if (worldPos.y < manager.transform.position.y)

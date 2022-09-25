@@ -6,6 +6,7 @@ public class ProjectileAOE : Projectile
 {
     [Header(nameof(ProjectileAOE))]
     [SerializeField] float areaRadius;
+    [SerializeField] string destroySound;
     [SerializeField] LayerMask targetLayer;
 
     private void OnDrawGizmosSelected()
@@ -22,6 +23,8 @@ public class ProjectileAOE : Projectile
         if (targets.Length > 0)
         {
             VFXManager.PlayVFX("ExplosionFX", transform.position);
+            SoundManager.Instance.PlayAudio(destroySound);
+
             foreach (var item in targets)
             {
                 Enemy enemy = item.GetComponentInParent<Enemy>();

@@ -44,6 +44,12 @@ public class Enemy : Entity
         characterRenderer.flipX = transform.position.x > targetPos.x;
     }
 
+    public override void TakeDmg(float amount)
+    {
+        SoundManager.Instance.PlayAudio("enemy_hit");
+        base.TakeDmg(amount);
+    }
+
     void DetachSprite()
     {
         characterRenderer.material = spriteMat;

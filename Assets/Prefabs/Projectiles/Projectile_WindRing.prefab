@@ -66,6 +66,7 @@ MonoBehaviour:
   lifeTime: 7
   collisionResistance: 99999
   lookAtTarget: 0
+  soundName: wind_cast
   targetLayer:
     serializedVersion: 2
     m_Bits: 64

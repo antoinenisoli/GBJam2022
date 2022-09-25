@@ -15,6 +15,7 @@ MonoBehaviour:
   WeaponName: ThunderSpell
   Quality: 1
   icon: {fileID: -1797032859257095629, guid: aca84324a668053489b48e284e14b383, type: 3}
+  delayBeforeHit: 0.5
   currentLevel: 0
   description: Summon thunder strikes around you, inflicting damage on the enemies.
   levels:
@@ -28,10 +29,10 @@ MonoBehaviour:
     damage: 170
   - rate: 3
     damage: 200
-  spawnRadius: 20
-  attackRadius: 6.5
-  delayBeforeHit: 0.5
-  fxName: Thunderstrike
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  spawnRadius: 20
+  attackRadius: 6.5
+  fxName: Thunderstrike
+  soundName: thunder_strike
