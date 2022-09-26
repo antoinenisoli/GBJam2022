@@ -41,18 +41,25 @@ public class WeaponSelectionUI : MonoBehaviour
         descriptionText.text = weapon.description;
 
         //check if the weapon is already unlocked or not
-        if (ContainsWeaponName(weapon))
-            UpdateLevels(weapon.CurrentLevel + 1);
+        if (ContainsWeaponName(weapon, out Weapon unlockedWeapon))
+        {
+            UpdateLevels(unlockedWeapon.CurrentLevel + 1);
+            print(unlockedWeapon.WeaponName + " " + unlockedWeapon.CurrentLevel);
+        }
         else
             UpdateLevels(weapon.CurrentLevel);
     }
 
-    bool ContainsWeaponName(Weapon weaponToCompare)
+    bool ContainsWeaponName(Weapon weaponToCompare, out Weapon sameWeapon)
     {
-        foreach (var item in WeaponContainer.Instance.UnlockedWeapons)
-            if (weaponToCompare.WeaponName == item.WeaponName)
+        foreach (var unlockedWeapon in WeaponContainer.Instance.UnlockedWeapons)
+            if (weaponToCompare.WeaponName == unlockedWeapon.WeaponName)
+            {
+                sameWeapon = unlockedWeapon;
                 return true;
+            }
 
+        sameWeapon = null;
         return false;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,7 +51,11 @@ public class HUDManager : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        timerText.text = timer.ToString("00:00");
+        if (PlayerController.Instance)
+        {
+            timer += Time.deltaTime;
+            var ts = TimeSpan.FromSeconds(timer);
+            timerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+        }
     }
 }

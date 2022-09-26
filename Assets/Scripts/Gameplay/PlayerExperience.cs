@@ -65,8 +65,16 @@ public class PlayerExperience
         EventManager.Instance.onPlayerNextLevel.Invoke();
     }
 
+    public bool LevelMax()
+    {
+        return CurrentLevel >= levels.Length - 1;
+    }
+
     public void AddXP(int amount)
     {
+        if (LevelMax())
+            return;
+
         Experience += amount;
         CheckXP();
     }

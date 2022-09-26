@@ -15,6 +15,7 @@ MonoBehaviour:
   WeaponName: MageWave
   Quality: 0
   icon: {fileID: 21300000, guid: 03183b36391e2374784bd26ebb91d8f3, type: 3}
+  delayBeforeHit: 0
   currentLevel: 0
   description: Cast a magic wave that goes up or down.
   levels:
@@ -30,6 +31,7 @@ MonoBehaviour:
     damage: 150
   attackRadius: 7
   fxName: AirBurst
+  soundName: water_cast
   targetLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -15,6 +15,7 @@ MonoBehaviour:
   WeaponName: EarthBumpSpell
   Quality: 0
   icon: {fileID: -5262431599024499442, guid: aca84324a668053489b48e284e14b383, type: 3}
+  delayBeforeHit: 0
   currentLevel: 0
   description: Summon sharp rocks from the ground around you, inflicting damage on
     the enemies.
@@ -29,10 +30,10 @@ MonoBehaviour:
     damage: 125
   - rate: 1.5
     damage: 150
-  spawnRadius: 23
-  attackRadius: 8
-  delayBeforeHit: 0
-  fxName: EarthBump
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  spawnRadius: 23
+  attackRadius: 8
+  fxName: EarthBump
+  soundName: axe_throw

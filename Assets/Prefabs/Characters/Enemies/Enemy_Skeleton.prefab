@@ -174,7 +174,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 6979197234608164232}
   hitDuration: 0.1
   spawnData:
-    Probability: 0.5
+    Probability: 1
     Quality: 0
 --- !u!114 &6979197234103918616
 MonoBehaviour:
