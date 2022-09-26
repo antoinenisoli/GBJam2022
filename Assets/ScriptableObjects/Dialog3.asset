@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Dialog3
   m_EditorClassIdentifier: 
   PortraitSprite: {fileID: -8486086399446934928, guid: 63382b76c101c784ba5fb7b36a032988, type: 3}
-  Delay: 2
+  Delay: 0
   Lines:
   - I hope so general...
-  - You may go for now.

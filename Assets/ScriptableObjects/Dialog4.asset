@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb489a58454974248becfc7d864c74fd, type: 3}
-  m_Name: Dialog1
+  m_Name: Dialog4
   m_EditorClassIdentifier: 
   PortraitSprite: {fileID: -8486086399446934928, guid: 63382b76c101c784ba5fb7b36a032988, type: 3}
-  Illustration: {fileID: 0}
-  Delay: 6
-  startCuscene: 0
+  Delay: 2
   Lines:
-  - You're finally here, my general.
-  - As you know, the elder tree is threatened by evil forces.
-  - It's our unique source of light, we have to fight back before it's too late.
+  - The monster we're fighting, its power, it scares me...
+  - It's a corruption i've never seen before...

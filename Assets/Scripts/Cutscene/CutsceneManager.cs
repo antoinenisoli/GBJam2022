@@ -19,11 +19,18 @@ public class CutsceneManager : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.onCutsceneEnd.AddListener(CutsceneEnd);
+        EventManager.Instance.onCutsceneStart.AddListener(StartCutscene);
+        StartDialog();
+    }
+
+    void LoadGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void EndFade()
     {
-        GBMaterialFading.Instance.Fade(1, 0, ()=> { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); });
+        GBMaterialFading.Instance.Fade(1, 0, ()=> { LoadGame(); });
     }
 
     void CutsceneEnd()
@@ -31,8 +38,19 @@ public class CutsceneManager : MonoBehaviour
         animator.SetTrigger("exit");
     }
 
+    public void StartCutscene()
+    {
+        animator.SetTrigger("start");
+    }
+
     public void StartDialog()
     {
-        cutsceneUI.PlayDialog(dialogs);
+        cutsceneUI.AssignDialogs(dialogs);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            LoadGame();
     }
 }

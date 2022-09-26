@@ -8,7 +8,7 @@ public class CutsceneUI : MonoBehaviour
 {
     [SerializeField] GameObject container;
     [SerializeField] Text dialogText;
-    [SerializeField] Image portrait;
+    [SerializeField] Image portrait, illustrationImage;
     [SerializeField] float typeDelay = 0.2f;
     bool isTyping;
     string currentLine;
@@ -16,15 +16,12 @@ public class CutsceneUI : MonoBehaviour
     Queue<Dialog> dialogQueue = new Queue<Dialog>();
     Queue<string> dialogLines = new Queue<string>();
 
-    public void PlayDialog(Dialog[] dialogs)
+    public void AssignDialogs(Dialog[] dialogs)
     {
         dialogQueue = new Queue<Dialog>(dialogs);
-        dialog = dialogQueue.Dequeue();
-
         container.gameObject.SetActive(true);
-        portrait.sprite = dialog.PortraitSprite;
-        dialogLines = new Queue<string>(dialog.Lines);
-        StartDialog();
+        GetNextDialog();
+        StartNextDialog();
     }
 
     IEnumerator TypeText(string line)
@@ -47,22 +44,34 @@ public class CutsceneUI : MonoBehaviour
         StopAllCoroutines();
     }
 
-    void StartDialog()
+    void StartNextDialog()
     {
         currentLine = dialogLines.Dequeue();
         StartCoroutine(TypeText(currentLine));
     }
 
-    IEnumerator NewDialog()
+    void GetNextDialog()
     {
         dialog = dialogQueue.Dequeue();
         portrait.sprite = dialog.PortraitSprite;
+        illustrationImage.sprite = dialog.Illustration;
+
+        illustrationImage.gameObject.SetActive(dialog.Illustration);
+        portrait.gameObject.SetActive(dialog.PortraitSprite);
         dialogLines = new Queue<string>(dialog.Lines);
+    }
+
+    IEnumerator NewDialog()
+    {
+        if (dialog.startCuscene)
+            EventManager.Instance.onCutsceneStart.Invoke();
+
+        GetNextDialog();
         container.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(dialog.Delay);
         container.gameObject.SetActive(true);
-        StartDialog();
+        StartNextDialog();
     }
 
     void ManageCutscene()
@@ -86,7 +95,7 @@ public class CutsceneUI : MonoBehaviour
                     return;
                 }
 
-                StartDialog();
+                StartNextDialog();
             }
         }
     }
