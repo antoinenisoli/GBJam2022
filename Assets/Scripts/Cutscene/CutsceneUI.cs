@@ -46,6 +46,7 @@ public class CutsceneUI : MonoBehaviour
 
     void StartNextDialog()
     {
+        SoundManager.Instance.PlayAudio("menu_select");
         currentLine = dialogLines.Dequeue();
         StartCoroutine(TypeText(currentLine));
     }
