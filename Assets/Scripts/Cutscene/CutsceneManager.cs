@@ -20,7 +20,7 @@ public class CutsceneManager : MonoBehaviour
     {
         EventManager.Instance.onCutsceneEnd.AddListener(CutsceneEnd);
         EventManager.Instance.onCutsceneStart.AddListener(StartCutscene);
-        StartDialog();
+        cutsceneUI.AssignDialogs(dialogs);
     }
 
     void LoadGame()
@@ -41,11 +41,6 @@ public class CutsceneManager : MonoBehaviour
     public void StartCutscene()
     {
         animator.SetTrigger("start");
-    }
-
-    public void StartDialog()
-    {
-        cutsceneUI.AssignDialogs(dialogs);
     }
 
     private void Update()

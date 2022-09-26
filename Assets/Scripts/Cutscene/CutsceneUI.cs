@@ -46,7 +46,6 @@ public class CutsceneUI : MonoBehaviour
 
     void StartNextDialog()
     {
-        SoundManager.Instance.PlayAudio("menu_select");
         currentLine = dialogLines.Dequeue();
         StartCoroutine(TypeText(currentLine));
     }
@@ -83,6 +82,7 @@ public class CutsceneUI : MonoBehaviour
                 StopTyping();
             else
             {
+                SoundManager.Instance.PlayAudio("menu_select");
                 if (dialogLines.Count <= 0)
                 {
                     if (dialogQueue.Count > 0)

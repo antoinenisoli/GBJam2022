@@ -42,10 +42,7 @@ public class WeaponSelectionUI : MonoBehaviour
 
         //check if the weapon is already unlocked or not
         if (ContainsWeaponName(weapon, out Weapon unlockedWeapon))
-        {
             UpdateLevels(unlockedWeapon.CurrentLevel + 1);
-            print(unlockedWeapon.WeaponName + " " + unlockedWeapon.CurrentLevel);
-        }
         else
             UpdateLevels(weapon.CurrentLevel);
     }
