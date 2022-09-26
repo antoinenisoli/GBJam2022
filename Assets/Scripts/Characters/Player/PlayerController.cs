@@ -29,10 +29,11 @@ public class PlayerController : Entity
         EventManager.Instance.onPlayerHeal.Invoke();
     }
 
-    public override void TakeDmg(float amount)
+    protected override void Hit(float amount)
     {
         EventManager.Instance.onPlayerHit.Invoke();
-        base.TakeDmg(amount);
+        SoundManager.Instance.PlayAudio("playerHit");
+        base.Hit(amount);
     }
 
     public override void Death()

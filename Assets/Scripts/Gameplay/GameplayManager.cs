@@ -18,11 +18,6 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager Instance;
     [SerializeField] GameState state;
 
-    [Header("GB Fade")]
-    [SerializeField] Material gbMaterial;
-    [SerializeField] int fadeIterations = 20;
-    [SerializeField] float fadeDelay = 0.1f;
-
     [Header("Other")]
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
     public PlayerExperience PlayerEXP;
@@ -37,43 +32,13 @@ public class GameplayManager : MonoBehaviour
 
     private void Start()
     {
-        if (gbMaterial)
-            StartCoroutine(FadeGB(0,1));
-
         EventManager.Instance.onPlayerNextLevel.AddListener(()=> { SetState(GameState.InWeaponSelection); });
         EventManager.Instance.onNewWeapon.AddListener(() => { SetState(GameState.Active); });
         EventManager.Instance.onPlayerDeath.AddListener(() => 
         {
-            StartCoroutine(FadeGB(1, 0, true));
+            GBMaterialFading.Instance.Fade(1, 0, ()=> { EventManager.Instance.onGameOver.Invoke(); });
             SetState(GameState.GameOver);
         });
-    }
-
-    private void OnApplicationQuit()
-    {
-        if (gbMaterial)
-            gbMaterial.SetFloat("_Fade", 1);
-    }
-
-    IEnumerator FadeGB(float startValue, float endValue, bool gameOver = false)
-    {
-        string shaderProperty = "_Fade";
-        gbMaterial.SetFloat(shaderProperty, startValue);
-
-        for (int i = 0; i < fadeIterations; i++)
-        {
-            float step = (float)i / (float)fadeIterations;
-            float newValue = Mathf.Lerp(startValue, endValue, step);
-            gbMaterial.SetFloat(shaderProperty, newValue);
-            yield return new WaitForSecondsRealtime(fadeDelay);
-        }
-
-        gbMaterial.SetFloat(shaderProperty, endValue);
-        if (gameOver)
-        {
-            EventManager.Instance.onGameOver.Invoke();
-            //SetState(GameState.GameOver);
-        }
     }
 
     public void AddEnemy(Enemy enemy)

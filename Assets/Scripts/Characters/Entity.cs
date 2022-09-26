@@ -12,18 +12,12 @@ public abstract class Entity : MonoBehaviour
     float hitTimer;
     protected Material spriteMat;
 
-    public virtual void TakeDmg(float amount)
+    public void TakeDmg(float amount)
     {
         if (hitTimer < hitDuration)
             return;
 
-        if (characterRenderer)
-            Hit();
-
-        MyHealth.CurrentHealth -= amount;
-        hitTimer = 0;
-        if (MyHealth.isDead)
-            Death();
+        Hit(amount);
     }
 
     public virtual void Death()
@@ -57,10 +51,18 @@ public abstract class Entity : MonoBehaviour
         MyHealth.Initialize();
     }
 
-    void Hit()
+    protected virtual void Hit(float amount)
     {
-        StopCoroutine(HitFlash());
-        StartCoroutine(HitFlash());
+        if (characterRenderer)
+        {
+            StopCoroutine(HitFlash());
+            StartCoroutine(HitFlash());
+        }
+
+        MyHealth.CurrentHealth -= amount;
+        hitTimer = 0;
+        if (MyHealth.isDead)
+            Death();
     }
 
     IEnumerator HitFlash()

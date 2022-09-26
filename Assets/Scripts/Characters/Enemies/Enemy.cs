@@ -44,10 +44,10 @@ public class Enemy : Entity
         characterRenderer.flipX = transform.position.x > targetPos.x;
     }
 
-    public override void TakeDmg(float amount)
+    protected override void Hit(float amount)
     {
         SoundManager.Instance.PlayAudio("enemy_hit");
-        base.TakeDmg(amount);
+        base.Hit(amount);
     }
 
     void DetachSprite()
@@ -64,7 +64,6 @@ public class Enemy : Entity
         DetachSprite();
         spawnData.TrySpawn(transform.position);
         GameplayManager.Instance.RemoveEnemy(this);
-
         base.Death();
     }
 }

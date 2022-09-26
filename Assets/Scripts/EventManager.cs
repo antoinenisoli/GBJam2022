@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent onNewWeapon = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
     public UnityEvent onSelectButton = new UnityEvent(), onQuitSelect = new UnityEvent();
+    public UnityEvent onCutsceneEnd = new UnityEvent();
 
     private void Awake()
     {

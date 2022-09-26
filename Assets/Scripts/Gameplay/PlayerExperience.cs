@@ -61,6 +61,7 @@ public class PlayerExperience
     {
         Experience = 0;
         CurrentLevel++;
+        SoundManager.Instance.PlayAudio("levelUp");
         EventManager.Instance.onPlayerNextLevel.Invoke();
     }
 

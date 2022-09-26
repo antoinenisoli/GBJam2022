@@ -58,14 +58,14 @@ public class MenuNaviguation : MonoBehaviour
             if (timer > 0.2f)
             {
                 timer = 0;
-                SoundManager.Instance.PlayAudio("moveArrow");
+                SoundManager.Instance.PlayAudio("menu_move");
                 Index += axisInput;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SoundManager.Instance.PlayAudio("selectOption");
+            SoundManager.Instance.PlayAudio("menu_select");
             fakeButtons[Index].selectEvent.Invoke();
         }
     }

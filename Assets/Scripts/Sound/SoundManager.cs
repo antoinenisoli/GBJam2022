@@ -47,14 +47,11 @@ public class SoundManager : MonoBehaviour
     [ContextMenu(nameof(Convert))]
     public void Convert()
     {
-        sounds.Clear();
         foreach (var item in clips)
         {
             Sound newSound = new Sound(item, item.name);
             sounds.Add(newSound);
         }
-
-        clips.Clear();
     }
 
     public void PlayAudio(string name, bool destroy = true, float destructionDelay = default, float spatialBlend = 0, float soundRadius = default)

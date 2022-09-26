@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4633359515439461990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4633359515439461985}
+  - component: {fileID: 4633359515439461984}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4633359515439461985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633359515439461990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4633359515439461984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633359515439461990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292e4978782a9394a88de0dac04495e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 1090697285b1d91438682cc1bb36eefc, type: 3}
+  - {fileID: 8300000, guid: 6fc028898e9f13543ae1397258cdc7fd, type: 3}
+  - {fileID: 8300000, guid: 02654bd4d780bf74da52945b04b9e76d, type: 3}
+  sounds:
+  - soundType: axe_throw
+    clip: {fileID: 8300000, guid: 7aa31e4b6961b044f8ba10bf9b549c9b, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: bomb_explode
+    clip: {fileID: 8300000, guid: da894ab501e4e6b49bdf6c890b52cd4d, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: bomb_throw
+    clip: {fileID: 8300000, guid: f6cc40bbd84458441a50314b55039585, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: enemy_hit
+    clip: {fileID: 8300000, guid: d4c1eab954b53be468076debe22baf17, type: 3}
+    volume: 0.105
+    pitch: 1
+    radius: 20
+  - soundType: knife_throw
+    clip: {fileID: 8300000, guid: 61b95af300450144f923321ead0139c0, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: sword_woosh
+    clip: {fileID: 8300000, guid: ed901bbceed940d448c1b2821aa53495, type: 3}
+    volume: 0.09
+    pitch: 1
+    radius: 20
+  - soundType: thunder_strike
+    clip: {fileID: 8300000, guid: bc4433a36f54e5146a69a90cc00154c7, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: wind_cast
+    clip: {fileID: 8300000, guid: 5f830c321cd29b54380a8fe70504ed88, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: menu_move
+    clip: {fileID: 8300000, guid: 7ef23f09eb0710e44b2a8bf1fe5a19dc, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: menu_select
+    clip: {fileID: 8300000, guid: e244edfe52757fc4a9f2cfd0ea66872e, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: playerHit
+    clip: {fileID: 8300000, guid: 1090697285b1d91438682cc1bb36eefc, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20
+  - soundType: levelUp
+    clip: {fileID: 8300000, guid: 6fc028898e9f13543ae1397258cdc7fd, type: 3}
+    volume: 0.369
+    pitch: 1
+    radius: 20
+  - soundType: itemSound
+    clip: {fileID: 8300000, guid: 02654bd4d780bf74da52945b04b9e76d, type: 3}
+    volume: 0.3
+    pitch: 1
+    radius: 20

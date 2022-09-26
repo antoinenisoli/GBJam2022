@@ -11,6 +11,7 @@ public abstract class Item : MonoBehaviour
         PlayerController player = collision.GetComponentInParent<PlayerController>();
         if (player)
         {
+            SoundManager.Instance.PlayAudio("itemSound");
             Effect(player);
             Destroy(gameObject);
         }
