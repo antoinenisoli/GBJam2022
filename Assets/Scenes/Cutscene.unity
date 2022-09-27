@@ -1765,7 +1765,7 @@ MonoBehaviour:
   dialogText: {fileID: 1557882778}
   portrait: {fileID: 485538979}
   illustrationImage: {fileID: 364462588}
-  typeDelay: 0.1
+  typeDelay: 0.05
 --- !u!224 &638438093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2250,6 +2250,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 897a8778dd1652b4dae495a4b68038a1, type: 2}
   - {fileID: 11400000, guid: c3c8a7b43cc0bba41b5e771b0ae5e0f0, type: 2}
   - {fileID: 11400000, guid: 1933be6cc8e4a4140966107f02a6fa39, type: 2}
+  - {fileID: 11400000, guid: dc1b9b1d9bb508f4189b7657ec7ab298, type: 2}
 --- !u!1 &833807479
 GameObject:
   m_ObjectHideFlags: 0

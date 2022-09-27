@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb489a58454974248becfc7d864c74fd, type: 3}
-  m_Name: Dialog2
+  m_Name: Dialog5
   m_EditorClassIdentifier: 
   PortraitSprite: {fileID: -3980538386120823036, guid: 63382b76c101c784ba5fb7b36a032988, type: 3}
   Illustration: {fileID: 0}
   Delay: 0
   startCuscene: 0
   Lines:
-  - I will take care of the situation princess, don't worry. The enemy lines are
-    going to break.
-  - 'We just recruited the best warriors, and they are ready to defend the tree with
-    all their heart. '
-  - The prophecy told us that they could stand alone on the battlefield for hours...
-    Since all our weapons were fruitless, this is our last hope.
+  - The kind of foe who desire nothing but to burn the world i'm afraid. Let us pray
+    for our heroes, we can't win without your faith princess.
+  - Now i will return to the no man's land, and start the final battle.
+  - Glory to the elder realm.

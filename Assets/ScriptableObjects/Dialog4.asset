@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Dialog4
   m_EditorClassIdentifier: 
   PortraitSprite: {fileID: -8486086399446934928, guid: 63382b76c101c784ba5fb7b36a032988, type: 3}
+  Illustration: {fileID: 0}
   Delay: 2
+  startCuscene: 0
   Lines:
-  - The monster we're fighting, its power, it scares me...
-  - It's a corruption i've never seen before...
+  - Sorry for this sudden silence, but the monster we're fighting, its power, it
+    scares me...
+  - It's a corruption i've never seen before... who would want to cast eternal darkness
+    upon our lands ?

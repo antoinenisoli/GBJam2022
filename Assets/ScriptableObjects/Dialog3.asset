@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Dialog3
   m_EditorClassIdentifier: 
   PortraitSprite: {fileID: -8486086399446934928, guid: 63382b76c101c784ba5fb7b36a032988, type: 3}
+  Illustration: {fileID: 0}
   Delay: 0
+  startCuscene: 0
   Lines:
-  - I hope so general...
+  - I hope so general... i hope so.

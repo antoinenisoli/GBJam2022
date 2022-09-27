@@ -17,6 +17,7 @@ MonoBehaviour:
   Delay: 6
   startCuscene: 0
   Lines:
-  - You're finally here, my general.
-  - As you know, the elder tree is threatened by evil forces.
-  - It's our unique source of light, we have to fight back before it's too late.
+  - You're finally here, my general. As you know, the elder tree is badly injured
+    since the last battle against these demons.
+  - 'It''s our unique source of light, we have to fight back before it''s too late. '
+  - What is your current plan to vanquish them ?
