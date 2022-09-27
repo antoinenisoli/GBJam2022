@@ -2329,6 +2329,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4633359515439461984, guid: 70f02ef45832c894e9095c0144cb83b8, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.058
+      objectReference: {fileID: 0}
     - target: {fileID: 4633359515439461985, guid: 70f02ef45832c894e9095c0144cb83b8, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2440,7 +2444,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 30b5e20bd31be6f46a7dcdbab4208cda, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.369
+  m_Volume: 0.155
   m_Pitch: 1
   Loop: 1
   Mute: 0
