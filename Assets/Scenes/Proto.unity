@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 154950944}
   - component: {fileID: 154950943}
   - component: {fileID: 154950942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2488,7 +2488,7 @@ GameObject:
   - component: {fileID: 1089426489}
   - component: {fileID: 1089426488}
   - component: {fileID: 1089426487}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3371,7 +3371,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 84.2, y: 65.24}
+  m_Size: {x: 85, y: 78}
   m_AdaptiveModeThreshold: 1
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5525,7 +5525,7 @@ GameObject:
   - component: {fileID: 1887581765}
   - component: {fileID: 1887581764}
   - component: {fileID: 1887581763}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5604,7 +5604,7 @@ GameObject:
   - component: {fileID: 1944255382}
   - component: {fileID: 1944255381}
   - component: {fileID: 1944255380}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall_N
   m_TagString: Untagged
   m_Icon: {fileID: 0}
