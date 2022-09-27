@@ -60,6 +60,8 @@ public class MenuNaviguation : MonoBehaviour
                 timer = 0;
                 SoundManager.Instance.PlayAudio("menu_move");
                 Index += axisInput;
+                while (!fakeButtons[Index].myButton.gameObject.activeInHierarchy)
+                    Index += axisInput;
             }
         }
 

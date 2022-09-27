@@ -3191,15 +3191,15 @@ MonoBehaviour:
   - Name: wave12
     startDelay: 0
     duration: 60
-    infinite: 1
-    randomCooldown: {x: 0, y: 0}
+    infinite: 0
+    randomCooldown: {x: 2, y: 4}
     workingSpawners:
     - {fileID: 111155224}
     - {fileID: 1837599350}
     - {fileID: 1317912124}
     enemiesToSpawn:
     - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
-    - {fileID: 6979197234103918620, guid: 3ef43341d2e5d654ca605d30a29e0b4d, type: 3}
+    - {fileID: 5236463267429813232, guid: 851b4b1ea50f6ec4ead17c313d9e02b0, type: 3}
 --- !u!1 &1218319949
 GameObject:
   m_ObjectHideFlags: 0
@@ -5267,68 +5267,98 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    maxXpAmount: 400
+    maxXpAmount: 600
     levels:
     - count: 1
       stepAmount: 26
     - count: 2
       stepAmount: 52
     - count: 3
-      stepAmount: 76
+      stepAmount: 77
     - count: 4
-      stepAmount: 100
+      stepAmount: 102
     - count: 5
-      stepAmount: 122
+      stepAmount: 126
     - count: 6
-      stepAmount: 144
+      stepAmount: 149
     - count: 7
-      stepAmount: 165
+      stepAmount: 172
     - count: 8
-      stepAmount: 185
+      stepAmount: 194
     - count: 9
-      stepAmount: 204
+      stepAmount: 216
     - count: 10
-      stepAmount: 222
+      stepAmount: 237
     - count: 11
-      stepAmount: 240
+      stepAmount: 257
     - count: 12
-      stepAmount: 256
+      stepAmount: 277
     - count: 13
-      stepAmount: 272
+      stepAmount: 297
     - count: 14
-      stepAmount: 286
+      stepAmount: 315
     - count: 15
-      stepAmount: 300
+      stepAmount: 333
     - count: 16
-      stepAmount: 313
+      stepAmount: 351
     - count: 17
-      stepAmount: 325
+      stepAmount: 368
     - count: 18
-      stepAmount: 336
-    - count: 19
-      stepAmount: 346
-    - count: 20
-      stepAmount: 356
-    - count: 21
-      stepAmount: 364
-    - count: 22
-      stepAmount: 372
-    - count: 23
-      stepAmount: 378
-    - count: 24
       stepAmount: 384
+    - count: 19
+      stepAmount: 400
+    - count: 20
+      stepAmount: 415
+    - count: 21
+      stepAmount: 429
+    - count: 22
+      stepAmount: 443
+    - count: 23
+      stepAmount: 457
+    - count: 24
+      stepAmount: 469
     - count: 25
-      stepAmount: 389
+      stepAmount: 481
     - count: 26
-      stepAmount: 393
+      stepAmount: 493
     - count: 27
-      stepAmount: 396
+      stepAmount: 504
     - count: 28
-      stepAmount: 398
+      stepAmount: 514
     - count: 29
-      stepAmount: 400
+      stepAmount: 524
     - count: 30
-      stepAmount: 400
+      stepAmount: 533
+    - count: 31
+      stepAmount: 542
+    - count: 32
+      stepAmount: 550
+    - count: 33
+      stepAmount: 557
+    - count: 34
+      stepAmount: 564
+    - count: 35
+      stepAmount: 570
+    - count: 36
+      stepAmount: 576
+    - count: 37
+      stepAmount: 581
+    - count: 38
+      stepAmount: 585
+    - count: 39
+      stepAmount: 589
+    - count: 40
+      stepAmount: 593
+    - count: 41
+      stepAmount: 595
+    - count: 42
+      stepAmount: 597
+    - count: 43
+      stepAmount: 599
+    - count: 44
+      stepAmount: 600
+    - count: 45
+      stepAmount: 600
 --- !u!4 &1875096512
 Transform:
   m_ObjectHideFlags: 0

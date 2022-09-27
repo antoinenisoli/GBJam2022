@@ -62,7 +62,8 @@ public class PlayerExperience
         Experience = 0;
         CurrentLevel++;
         SoundManager.Instance.PlayAudio("levelUp");
-        EventManager.Instance.onPlayerNextLevel.Invoke();
+        if (RewardManager.Instance.AllWeapons.Count > 0)
+            EventManager.Instance.onPlayerNextLevel.Invoke();
     }
 
     public bool LevelMax()

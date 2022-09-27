@@ -22,8 +22,14 @@ public class WeaponSelectionManager : MonoBehaviour
     void SetNewWeapons()
     {
         List<Weapon> randomWeapons = RandomWeapons();
-        for (int i = 0; i < weaponSelectors.Length; i++)
+        foreach (var item in weaponSelectors)
+            item.gameObject.SetActive(false);
+
+        for (int i = 0; i < randomWeapons.Count; i++)
+        {
+            weaponSelectors[i].gameObject.SetActive(true);
             weaponSelectors[i].SetWeapon(randomWeapons[i]);
+        }
     }
 
     List<Weapon> WeaponsByQuality(WeaponQuality quality)
@@ -37,23 +43,27 @@ public class WeaponSelectionManager : MonoBehaviour
     {
         List<Weapon> randomWeapons = new List<Weapon>();
         availableWeapons = new List<Weapon>(RewardManager.Instance.AllWeapons);
-        for (int i = 0; i < 3; i++)
-        {
-            float randomProb = Random.Range(0f, 1f);
-            //print(randomProb);
-            List<Weapon> weaponList = new List<Weapon>();
+        int count = 3;
+        if (availableWeapons.Count < count)
+            count = availableWeapons.Count;
 
-            if (randomProb < rareProb)
-                weaponList = WeaponsByQuality(WeaponQuality.Rare);
-            else if (randomProb < specialProb)
-                weaponList = WeaponsByQuality(WeaponQuality.Special);
-            else if (randomProb < commonProb)
-                weaponList = WeaponsByQuality(WeaponQuality.Common);
+        for (int i = 0; i < count; i++)
+        {
+            List<Weapon> weaponList = new List<Weapon>();
+            while (weaponList.Count <= 0)
+            {
+                float randomProb = Random.Range(0f, 1f);
+                if (randomProb < rareProb)
+                    weaponList = WeaponsByQuality(WeaponQuality.Rare);
+                else if (randomProb < specialProb)
+                    weaponList = WeaponsByQuality(WeaponQuality.Special);
+                else if (randomProb < commonProb)
+                    weaponList = WeaponsByQuality(WeaponQuality.Common);
+            }
 
             while (true)
             {
                 int randomIndex = Random.Range(0, weaponList.Count);
-                //print(randomIndex);
                 Weapon randomWeapon = weaponList[randomIndex];
                 if (!ContainsWeaponName(randomWeapon, randomWeapons))
                 {
